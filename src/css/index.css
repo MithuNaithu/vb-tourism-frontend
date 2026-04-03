@@ -1,0 +1,60 @@
+.hero {
+    background: url("/images/hero.jpg") center/cover no-repeat;
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+.sidebar {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.sidebar img {
+    border-radius: 6px;
+}
+
+/* --- New Beautification Styles --- */
+
+/* A calm, tropical backwater teal */
+.text-tropical {
+    color: #028090; 
+}
+
+/* Smooth hover animation for affiliate cards */
+.hover-card {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Cinematic Image Zoom */
+.img-zoom-wrapper {
+    overflow: hidden; /* Keeps the image inside the box when it zooms */
+    border-radius: 8px;
+}
+
+.img-cinematic {
+    transition: transform 0.8s ease-out; /* Super smooth, slow zoom */
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover; /* Ensures the image doesn't stretch weirdly */
+}
+
+.img-zoom-wrapper:hover .img-cinematic {
+    transform: scale(1.05); /* Zooms in just 5% */
+}
