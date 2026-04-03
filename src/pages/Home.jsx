@@ -16,8 +16,30 @@ export default function Home() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleWhatsAppSubmit = (e) => {
+    const handleWhatsAppSubmit = async (e) => {
         e.preventDefault();
+
+        // --- NEW: Send data to your backend quietly ---
+        try {
+            await fetch('http://localhost:3000/api/bookings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email || 'no-email@provided.com', // Backend needs an email
+                    service: formData.service,
+                    phone: formData.phone,
+                    date: formData.date
+                })
+            });
+            console.log("✅ Lead securely saved to database!");
+        } catch (error) {
+            console.error("❌ Could not connect to backend, but opening WhatsApp anyway...", error);
+        }
+
+        // --- EXISTING: Open WhatsApp ---
         const friendNumber = "919497401671"; // Replace with your coordinator's real number
 
         const message = `*🔔 NEW LEAD FROM YOUR WEBSITE 🔔*
@@ -108,22 +130,27 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Footer */}
-            {/* Footer */}
-            {/* Footer */}
-            <footer className="bg-dark text-white text-center p-4 mt-2">
-                <div className="container">
-                    <p className="mb-3">© 2026 visitvaliyaparamba.com</p>
+            {/* Compact Footer */}
+            <footer className="bg-dark text-white py-2 mt-4">
+                <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    
+                    {/* Copyright & Address */}
+                    <div className="text-center text-md-start mb-2 mb-md-0">
+                        <p className="mb-0" style={{ fontSize: "0.85rem" }}>© 2026 visitvaliyaparamba.com</p>
+                        <p className="mb-0 text-muted" style={{ fontSize: "0.75rem" }}>Thrikaripur, Kerala, India</p>
+                    </div>
                     
                     {/* Visitor Counter */}
-                    <div className="d-flex flex-column align-items-center mt-2">
-                        <span className="small text-muted mb-2 tracking-wide" style={{ letterSpacing: "1px", fontSize: "0.8rem" }}>PAGE VIEWS</span>
+                    <div className="d-flex align-items-center gap-2">
+                        <span className="text-muted tracking-wide" style={{ letterSpacing: "1px", fontSize: "0.7rem" }}>PAGE VIEWS:</span>
                         <img 
                             src="https://api.visitorbadge.io/api/visitors?path=visitvaliyaparamba.com&label=&countColor=%23028090&style=flat-square" 
                             alt="Visitor Count" 
                             className="shadow-sm rounded"
+                            style={{ height: "18px" }} 
                         />
                     </div>
+
                 </div>
             </footer>
 
