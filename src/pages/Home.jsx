@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -11,6 +11,16 @@ export default function Home() {
         service: 'Houseboat Cruise', // Default is now just the core service
         date: ''
     });
+    // --- NEW: State for the raw visitor number ---
+    const [visitors, setVisitors] = useState("...");
+
+    // --- NEW: Fetch visitor count when page loads ---
+    useEffect(() => {
+        fetch('https://api.counterapi.dev/v1/valiyaparamba_tourism/homepage/up')
+            .then(res => res.json())
+            .then(data => setVisitors(data.count))
+            .catch(err => console.error("Counter error:", err));
+    }, []);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -141,12 +151,10 @@ export default function Home() {
                     </div>
 
                    {/* Visitor Counter (Number Only) */}
-                    <div className="d-flex align-items-center">
-                        <img 
-                            src="https://profile-counter.glitch.me/visitvaliyaparamba/count.svg" 
-                            alt="Visitor Count" 
-                            style={{ height: "25px" }} 
-                        />
+                    <div className="d-flex align-items-center" title="Total Visitors">
+                        <span className="badge bg-secondary fs-6 px-3 py-2 shadow-sm">
+                            {visitors}
+                        </span>
                     </div>
 
                 </div>
