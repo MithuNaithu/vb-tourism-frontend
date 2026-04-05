@@ -133,23 +133,21 @@ export default function Home() {
             {/* Compact Footer */}
             <footer className="bg-dark text-white py-2 mt-4">
                 <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    
+
                     {/* Copyright & Address */}
                     <div className="text-center text-md-start mb-2 mb-md-0">
                         <p className="mb-0" style={{ fontSize: "0.85rem" }}>© 2026 visitvaliyaparamba.com</p>
                         <p className="mb-0 text-muted" style={{ fontSize: "0.75rem" }}>Thrikaripur, Kerala, India</p>
                     </div>
-                    
-                    {/* Visitor Counter */}
-                    <div className="d-flex align-items-center gap-2">
-                        <span className="text-muted tracking-wide" style={{ letterSpacing: "1px", fontSize: "0.7rem" }}>PAGE VIEWS:</span>
-                        <img 
-                            src="https://api.visitorbadge.io/api/visitors?path=visitvaliyaparamba.com&label=&countColor=%23028090&style=flat-square" 
-                            alt="Visitor Count" 
-                            className="shadow-sm rounded"
-                            style={{ height: "18px" }} 
-                        />
-                    </div>
+
+                   {/* Visitor Counter (Number Only) */}
+<div className="d-flex align-items-center">
+    <img 
+        src="https://profile-counter.glitch.me/visitvaliyaparamba/count.svg" 
+        alt="Visitor Count" 
+        style={{ height: "25px" }} 
+    />
+</div>
 
                 </div>
             </footer>
