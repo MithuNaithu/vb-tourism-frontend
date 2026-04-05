@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
     const [showModal, setShowModal] = useState(false);
-    
-    // --- State for the raw visitor number ---
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [visitors, setVisitors] = useState("...");
 
     const [formData, setFormData] = useState({
@@ -15,7 +14,6 @@ export default function Home() {
         date: ''
     });
 
-    // --- Fetch visitor count when page loads ---
     useEffect(() => {
         fetch('https://api.counterapi.dev/v1/valiyaparamba_tourism/homepage/up')
             .then(res => res.json())
@@ -29,8 +27,8 @@ export default function Home() {
 
     const handleWhatsAppSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
 
-        // --- Send data to your backend quietly ---
         try {
             await fetch('http://localhost:3000/api/bookings', {
                 method: 'POST',
@@ -50,10 +48,9 @@ export default function Home() {
             console.error("❌ Could not connect to backend, but opening WhatsApp anyway...", error);
         }
 
-        // --- Open WhatsApp ---
         const friendNumber = "919497401671"; 
 
-        const message = `*🔔 NEW LEAD FROM YOUR WEBSITE 🔔*
+        const message = `*🔔 NEW ENQUIRY FROM WEBSITE 🔔*
 *Source:* Visit Valiyaparamba Platform
 
 *Name:* ${formData.name}
@@ -63,13 +60,23 @@ export default function Home() {
 *Date:* ${formData.date}`;
 
         const whatsappUrl = `https://wa.me/${friendNumber}?text=${encodeURIComponent(message)}`;
+        
         window.open(whatsappUrl, '_blank');
+        
+        setFormData({
+            name: '',
+            phone: '',
+            email: '',
+            service: 'Houseboat Cruise',
+            date: ''
+        });
+        
         setShowModal(false);
+        setIsSubmitting(false);
     };
 
     return (
         <div className="position-relative" style={{ fontFamily: "'Segoe UI', Roboto, Helvetica, Arial, sans-serif" }}>
-            {/* Navbar */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
                     <Link className="navbar-brand" to="/">Visit Valiyaparamba</Link>
@@ -80,19 +87,17 @@ export default function Home() {
                 </div>
             </nav>
 
-            {/* Hero Section */}
             <section className="hero text-center text-white d-flex align-items-center justify-content-center"
                 style={{ background: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/hero.jpg') center/cover", height: "70vh" }}>
                 <div className="container">
                     <h1 className="display-4 fw-bold text-shadow-sm">Explore Valiyaparamba Backwaters</h1>
                     <p className="lead mb-4 text-shadow-sm">Peaceful houseboat cruises, beautiful beaches, and authentic Kerala village life.</p>
                     <button onClick={() => setShowModal(true)} className="btn btn-warning btn-lg px-4 fw-bold shadow hover-card">
-                        Book Your Experience
+                        Send an Enquiry
                     </button>
                 </div>
             </section>
 
-            {/* Why Visit Section */}
             <section className="p-5 text-center bg-white">
                 <div className="container">
                     <h2 className="mb-4">Why Visit Valiyaparamba</h2>
@@ -114,7 +119,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Tourism Services Section */}
             <section className="p-5 bg-light pb-5">
                 <div className="container text-center mb-4">
                     <h2 className="mb-5">Core Experiences</h2>
@@ -141,7 +145,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Compact Footer */}
             <footer className="bg-dark text-white py-2 mt-4">
                 <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
                     <div className="text-center text-md-start mb-2 mb-md-0">
@@ -149,7 +152,6 @@ export default function Home() {
                         <p className="mb-0 text-muted" style={{ fontSize: "0.75rem" }}>Thrikaripur, Kerala, India</p>
                     </div>
 
-                    {/* Visitor Counter */}
                     <div className="d-flex align-items-center" title="Total Visitors">
                         <span className="badge bg-secondary fs-6 px-3 py-2 shadow-sm">
                             {visitors}
@@ -158,7 +160,6 @@ export default function Home() {
                 </div>
             </footer>
 
-            {/* Modal */}
             {showModal && (
                 <>
                     <div className="modal-backdrop fade show" onClick={() => setShowModal(false)}></div>
@@ -166,7 +167,7 @@ export default function Home() {
                         <div className="modal-dialog modal-dialog-centered">
                             <div className="modal-content shadow-lg border-0">
                                 <div className="modal-header bg-dark text-white">
-                                    <h5 className="modal-title">Book Your Experience</h5>
+                                    <h5 className="modal-title">Send an Enquiry</h5>
                                     <button type="button" className="btn-close btn-close-white" onClick={() => setShowModal(false)}></button>
                                 </div>
                                 <div className="modal-body p-4 text-start">
@@ -196,7 +197,13 @@ export default function Home() {
                                                 <input type="date" name="date" className="form-control" required value={formData.date} onChange={handleChange} />
                                             </div>
                                         </div>
-                                        <button type="submit" className="btn btn-warning w-100 fs-6 shadow-sm hover-card">Confirm Booking via WhatsApp</button>
+                                        <button 
+                                            type="submit" 
+                                            className="btn btn-warning w-100 fs-6 shadow-sm hover-card"
+                                            disabled={isSubmitting}
+                                        >
+                                            {isSubmitting ? "Sending..." : "Send Enquiry via WhatsApp"}
+                                        </button>
                                     </form>
                                 </div>
                             </div>
