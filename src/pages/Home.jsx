@@ -3,18 +3,20 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
     const [showModal, setShowModal] = useState(false);
+    
+    // --- NEW: Loading state for the submit button ---
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    
+    const [visitors, setVisitors] = useState("...");
 
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
         email: '',
-        service: 'Houseboat Cruise', // Default is now just the core service
+        service: 'Houseboat Cruise', 
         date: ''
     });
-    // --- NEW: State for the raw visitor number ---
-    const [visitors, setVisitors] = useState("...");
 
-    // --- NEW: Fetch visitor count when page loads ---
     useEffect(() => {
         fetch('https://api.counterapi.dev/v1/valiyaparamba_tourism/homepage/up')
             .then(res => res.json())
@@ -28,8 +30,10 @@ export default function Home() {
 
     const handleWhatsAppSubmit = async (e) => {
         e.preventDefault();
+        
+        // Disable the button and show "Sending..."
+        setIsSubmitting(true);
 
-        // --- NEW: Send data to your backend quietly ---
         try {
             await fetch('http://localhost:3000/api/bookings', {
                 method: 'POST',
@@ -38,7 +42,7 @@ export default function Home() {
                 },
                 body: JSON.stringify({
                     name: formData.name,
-                    email: formData.email || 'no-email@provided.com', // Backend needs an email
+                    email: formData.email || 'no-email@provided.com', 
                     service: formData.service,
                     phone: formData.phone,
                     date: formData.date
@@ -49,10 +53,9 @@ export default function Home() {
             console.error("❌ Could not connect to backend, but opening WhatsApp anyway...", error);
         }
 
-        // --- EXISTING: Open WhatsApp ---
-        const friendNumber = "919497401671"; // Replace with your coordinator's real number
+        const friendNumber = "919497401671"; 
 
-        const message = `*🔔 NEW LEAD FROM YOUR WEBSITE 🔔*
+        const message = `*🔔 NEW ENQUIRY FROM WEBSITE 🔔*
 *Source:* Visit Valiyaparamba Platform
 
 *Name:* ${formData.name}
@@ -62,8 +65,22 @@ export default function Home() {
 *Date:* ${formData.date}`;
 
         const whatsappUrl = `https://wa.me/${friendNumber}?text=${encodeURIComponent(message)}`;
+        
+        // Open WhatsApp
         window.open(whatsappUrl, '_blank');
+        
+        // --- NEW: Reset the form completely so it's blank next time ---
+        setFormData({
+            name: '',
+            phone: '',
+            email: '',
+            service: 'Houseboat Cruise',
+            date: ''
+        });
+        
+        // Close modal and reset button state
         setShowModal(false);
+        setIsSubmitting(false);
     };
 
     return (
@@ -85,8 +102,9 @@ export default function Home() {
                 <div className="container">
                     <h1 className="display-4 fw-bold text-shadow-sm">Explore Valiyaparamba Backwaters</h1>
                     <p className="lead mb-4 text-shadow-sm">Peaceful houseboat cruises, beautiful beaches, and authentic Kerala village life.</p>
+                    {/* CHANGED TEXT HERE */}
                     <button onClick={() => setShowModal(true)} className="btn btn-warning btn-lg px-4 fw-bold shadow hover-card">
-                        Book Your Experience
+                        Send an Enquiry
                     </button>
                 </div>
             </section>
@@ -113,7 +131,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Tourism Services Section (Your Conversion Pipeline) */}
+            {/* Tourism Services Section */}
             <section className="p-5 bg-light pb-5">
                 <div className="container text-center mb-4">
                     <h2 className="mb-5">Core Experiences</h2>
@@ -143,20 +161,16 @@ export default function Home() {
             {/* Compact Footer */}
             <footer className="bg-dark text-white py-2 mt-4">
                 <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-
-                    {/* Copyright & Address */}
                     <div className="text-center text-md-start mb-2 mb-md-0">
                         <p className="mb-0" style={{ fontSize: "0.85rem" }}>© 2026 visitvaliyaparamba.com</p>
                         <p className="mb-0 text-muted" style={{ fontSize: "0.75rem" }}>Thrikaripur, Kerala, India</p>
                     </div>
 
-                   {/* Visitor Counter (Number Only) */}
                     <div className="d-flex align-items-center" title="Total Visitors">
                         <span className="badge bg-secondary fs-6 px-3 py-2 shadow-sm">
                             {visitors}
                         </span>
                     </div>
-
                 </div>
             </footer>
 
@@ -168,7 +182,8 @@ export default function Home() {
                         <div className="modal-dialog modal-dialog-centered">
                             <div className="modal-content shadow-lg border-0">
                                 <div className="modal-header bg-dark text-white">
-                                    <h5 className="modal-title">Book Your Experience</h5>
+                                    {/* CHANGED TEXT HERE */}
+                                    <h5 className="modal-title">Send an Enquiry</h5>
                                     <button type="button" className="btn-close btn-close-white" onClick={() => setShowModal(false)}></button>
                                 </div>
                                 <div className="modal-body p-4 text-start">
@@ -198,7 +213,14 @@ export default function Home() {
                                                 <input type="date" name="date" className="form-control" required value={formData.date} onChange={handleChange} />
                                             </div>
                                         </div>
-                                        <button type="submit" className="btn btn-warning w-100 fs-6 shadow-sm hover-card">Confirm Booking via WhatsApp</button>
+                                        {/* CHANGED BUTTON LOGIC AND TEXT HERE */}
+                                        <button 
+                                            type="submit" 
+                                            className="btn btn-warning w-100 fs-6 shadow-sm hover-card"
+                                            disabled={isSubmitting}
+                                        >
+                                            {isSubmitting ? "Sending..." : "Send Enquiry via WhatsApp"}
+                                        </button>
                                     </form>
                                 </div>
                             </div>
