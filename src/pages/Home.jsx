@@ -1,11 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
     const [showModal, setShowModal] = useState(false);
-    
-    // --- NEW: State for the raw visitor number ---
-    const [visitors, setVisitors] = useState("...");
 
     const [formData, setFormData] = useState({
         name: '',
@@ -14,14 +11,6 @@ export default function Home() {
         service: 'Houseboat Cruise', // Default is now just the core service
         date: ''
     });
-
-    // --- NEW: Fetch visitor count when page loads ---
-    useEffect(() => {
-        fetch('https://api.counterapi.dev/v1/valiyaparamba_tourism/homepage/up')
-            .then(res => res.json())
-            .then(data => setVisitors(data.count))
-            .catch(err => console.error("Counter error:", err));
-    }, []);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -151,11 +140,13 @@ export default function Home() {
                         <p className="mb-0 text-muted" style={{ fontSize: "0.75rem" }}>Thrikaripur, Kerala, India</p>
                     </div>
 
-                    {/* Visitor Counter (Number Only text output) */}
-                    <div className="d-flex align-items-center" title="Total Visitors">
-                        <span className="badge bg-secondary fs-6 px-3 py-2 shadow-sm">
-                            {visitors}
-                        </span>
+                   {/* Visitor Counter (Number Only) */}
+                    <div className="d-flex align-items-center">
+                        <img 
+                            src="https://profile-counter.glitch.me/visitvaliyaparamba/count.svg" 
+                            alt="Visitor Count" 
+                            style={{ height: "25px" }} 
+                        />
                     </div>
 
                 </div>
