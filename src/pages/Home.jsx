@@ -3,18 +3,19 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
     const [showModal, setShowModal] = useState(false);
+    
+    // --- State for the raw visitor number ---
+    const [visitors, setVisitors] = useState("...");
 
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
         email: '',
-        service: 'Houseboat Cruise', // Default is now just the core service
+        service: 'Houseboat Cruise', 
         date: ''
     });
-    // --- NEW: State for the raw visitor number ---
-    const [visitors, setVisitors] = useState("...");
 
-    // --- NEW: Fetch visitor count when page loads ---
+    // --- Fetch visitor count when page loads ---
     useEffect(() => {
         fetch('https://api.counterapi.dev/v1/valiyaparamba_tourism/homepage/up')
             .then(res => res.json())
@@ -29,7 +30,7 @@ export default function Home() {
     const handleWhatsAppSubmit = async (e) => {
         e.preventDefault();
 
-        // --- NEW: Send data to your backend quietly ---
+        // --- Send data to your backend quietly ---
         try {
             await fetch('http://localhost:3000/api/bookings', {
                 method: 'POST',
@@ -38,7 +39,7 @@ export default function Home() {
                 },
                 body: JSON.stringify({
                     name: formData.name,
-                    email: formData.email || 'no-email@provided.com', // Backend needs an email
+                    email: formData.email || 'no-email@provided.com', 
                     service: formData.service,
                     phone: formData.phone,
                     date: formData.date
@@ -49,8 +50,8 @@ export default function Home() {
             console.error("❌ Could not connect to backend, but opening WhatsApp anyway...", error);
         }
 
-        // --- EXISTING: Open WhatsApp ---
-        const friendNumber = "919497401671"; // Replace with your coordinator's real number
+        // --- Open WhatsApp ---
+        const friendNumber = "919497401671"; 
 
         const message = `*🔔 NEW LEAD FROM YOUR WEBSITE 🔔*
 *Source:* Visit Valiyaparamba Platform
@@ -113,7 +114,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Tourism Services Section (Your Conversion Pipeline) */}
+            {/* Tourism Services Section */}
             <section className="p-5 bg-light pb-5">
                 <div className="container text-center mb-4">
                     <h2 className="mb-5">Core Experiences</h2>
@@ -143,20 +144,17 @@ export default function Home() {
             {/* Compact Footer */}
             <footer className="bg-dark text-white py-2 mt-4">
                 <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-
-                    {/* Copyright & Address */}
                     <div className="text-center text-md-start mb-2 mb-md-0">
                         <p className="mb-0" style={{ fontSize: "0.85rem" }}>© 2026 visitvaliyaparamba.com</p>
                         <p className="mb-0 text-muted" style={{ fontSize: "0.75rem" }}>Thrikaripur, Kerala, India</p>
                     </div>
 
-                   {/* Visitor Counter (Number Only) */}
+                    {/* Visitor Counter */}
                     <div className="d-flex align-items-center" title="Total Visitors">
                         <span className="badge bg-secondary fs-6 px-3 py-2 shadow-sm">
                             {visitors}
                         </span>
                     </div>
-
                 </div>
             </footer>
 
