@@ -12,7 +12,7 @@ export default function Admin() {
 
     const fetchBookings = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/bookings');
+            const response = await fetch(`https://vb-tourism-backend.onrender.com/api/bookings/${id}`);
             const data = await response.json();
             
             // Sort to show newest bookings first (assuming your backend sends an array)
@@ -31,7 +31,7 @@ export default function Admin() {
         if (!window.confirm("Are you sure you want to delete this enquiry?")) return;
 
         try {
-            const response = await fetch(`http://localhost:3000/api/bookings/${id}`, {
+            const response = await fetch(`https://vb-tourism-backend.onrender.com/api/bookings/${id}`, {
                 method: 'DELETE',
             });
 

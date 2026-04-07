@@ -30,7 +30,7 @@ export default function Home() {
         setIsSubmitting(true);
 
         try {
-            await fetch('http://localhost:3000/api/bookings', {
+            await fetch('https://vb-tourism-backend.onrender.com/api/bookings', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
