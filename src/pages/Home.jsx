@@ -32,7 +32,7 @@ export default function Home() {
 
         // 1. OPEN WHATSAPP IMMEDIATELY
         const friendNumber = "919497401671"; 
-        const message = `*🔔 NEW ENQUIRY FROM WEBSITE 🔔*\n*Source:* Visit Valiyaparamba Platform\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email || 'Not provided'}\n*Service:* ${formData.service}\n*Date:* ${formData.date}`;
+        const message = `*🔔 NEW ENQUIRY FROM WEBSITE 🔔*\n*Source:* Valiyaparambatourism.com Platform\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email || 'Not provided'}\n*Service:* ${formData.service}\n*Date:* ${formData.date}`;
         const whatsappUrl = `https://wa.me/${friendNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
 
@@ -90,7 +90,7 @@ export default function Home() {
         <div className="position-relative" style={{ fontFamily: "'Segoe UI', Roboto, Helvetica, Arial, sans-serif" }}>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
-                    <Link className="navbar-brand" to="/">Visit Valiyaparamba</Link>
+                    <Link className="navbar-brand" to="/">Welcome Valiyaparamba</Link>
                     <ul className="navbar-nav ms-auto flex-row gap-4">
                         <li className="nav-item"><Link className="nav-link active" to="/">Home</Link></li>
                         <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
@@ -159,7 +159,7 @@ export default function Home() {
             <footer className="bg-dark text-white py-3">
                 <div className="container d-flex justify-content-between align-items-center">
                     <div>
-                        <p className="mb-0 small">© 2026 visitvaliyaparamba.com</p>
+                        <p className="mb-0 small">© 2026 valiyaparambatourism.com</p>
                         <p className="mb-0 text-muted extra-small">Thrikaripur, Kerala, India</p>
                     </div>
                     <div className="badge bg-secondary px-3 py-2">

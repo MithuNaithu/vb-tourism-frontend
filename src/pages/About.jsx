@@ -6,7 +6,7 @@ export default function About() {
             {/* Navbar */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
-                    <Link className="navbar-brand" to="/">Visit Valiyaparamba</Link>
+                    <Link className="navbar-brand" to="/">Welcome Valiyaparamba</Link>
                     <ul className="navbar-nav ms-auto flex-row gap-4">
                         <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
                         <li className="nav-item"><Link className="nav-link active" to="/about">About</Link></li>
