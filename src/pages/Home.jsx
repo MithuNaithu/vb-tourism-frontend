@@ -99,10 +99,15 @@ export default function Home() {
             </nav>
 
             <section className="hero text-center text-white d-flex align-items-center justify-content-center"
-                style={{ background: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/hero.jpg') center/cover", height: "70vh" }}>
+                style={{ background: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/hero.jpg') center/cover", minHeight: "70vh", padding: "60px 15px" }}>
                 <div className="container">
-                    <h1 className="display-4 fw-bold text-shadow-sm">Explore Valiyaparamba Backwaters</h1>
-                    <p className="lead mb-4 text-shadow-sm">Peaceful houseboat cruises, beautiful beaches, and authentic Kerala village life.</p>
+                    {/* Changed display-4 to responsive inline clamp and standard h1 to fix mobile overlap */}
+                    <h1 className="fw-bold text-shadow-sm mb-3" style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", lineHeight: "1.2" }}>
+                        Explore Valiyaparamba Backwaters
+                    </h1>
+                    <p className="lead mb-4 text-shadow-sm" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
+                        Peaceful houseboat cruises, beautiful beaches, and authentic Kerala village life.
+                    </p>
                     <button onClick={() => setShowModal(true)} className="btn btn-warning btn-lg px-4 fw-bold shadow">
                         Send an Enquiry
                     </button>
@@ -114,13 +119,14 @@ export default function Home() {
                     <h2 className="mb-4">Why Visit Valiyaparamba</h2>
                     <p className="text-muted mb-5">Valiyaparamba is one of the most peaceful backwater destinations in northern Kerala.</p>
                     <div className="row mt-4">
-                        <div className="col-md-3">
+                        {/* Added mb-4 mb-md-0 to give spacing between items when stacked on mobile */}
+                        <div className="col-md-3 mb-4 mb-md-0">
                             <h4 className="display-6">🌴</h4><h6 className="mt-3">Beautiful Backwaters</h6>
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-md-3 mb-4 mb-md-0">
                             <h4 className="display-6">🚤</h4><h6 className="mt-3">Houseboat Cruises</h6>
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-md-3 mb-4 mb-md-0">
                             <h4 className="display-6">🏝</h4><h6 className="mt-3">Island Experience</h6>
                         </div>
                         <div className="col-md-3">
@@ -135,8 +141,8 @@ export default function Home() {
                     <h2 className="mb-5">Core Experiences</h2>
                     <div className="row g-4 justify-content-center">
                         <div className="col-md-5">
-                            <div className="card h-100 shadow-sm border-0">
-                                <img src="/images/houseboat.jpg" className="card-img-top" style={{ height: "250px", objectFit: "cover" }} alt="Houseboat" />
+                            <div className="card h-100 shadow-sm border-0 hover-card img-zoom-wrapper">
+                                <img src="/images/houseboat.jpg" className="card-img-top img-cinematic" alt="Houseboat" />
                                 <div className="card-body p-4">
                                     <h5 className="mb-3">Luxury Houseboat Cruise</h5>
                                     <p className="text-muted mb-0">Experience the tranquil Kerala backwaters in our premium houseboats.</p>
@@ -144,8 +150,8 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="col-md-5">
-                            <div className="card h-100 shadow-sm border-0">
-                                <img src="/images/homestay.jpg" className="card-img-top" style={{ height: "250px", objectFit: "cover" }} alt="Homestay" />
+                            <div className="card h-100 shadow-sm border-0 hover-card img-zoom-wrapper">
+                                <img src="/images/homestay.jpg" className="card-img-top img-cinematic" alt="Homestay" />
                                 <div className="card-body p-4">
                                     <h5 className="mb-3">Authentic Homestays</h5>
                                     <p className="text-muted mb-0">Enjoy legendary coastal Kerala hospitality and fresh seafood.</p>
