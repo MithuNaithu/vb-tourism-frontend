@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 
 export default function Home() {
     const [showModal, setShowModal] = useState(false);
@@ -29,40 +30,50 @@ export default function Home() {
         e.preventDefault();
         setIsSubmitting(true);
 
-        try {
-            await fetch('https://vb-tourism-backend.onrender.com/api/bookings', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: formData.name,
-                    email: formData.email || 'no-email@provided.com', 
-                    service: formData.service,
-                    phone: formData.phone,
-                    date: formData.date
-                })
-            });
-            console.log("✅ Lead securely saved to database!");
-        } catch (error) {
-            console.error("❌ Could not connect to backend, but opening WhatsApp anyway...", error);
-        }
-
+        // 1. OPEN WHATSAPP IMMEDIATELY
         const friendNumber = "919497401671"; 
-
-        const message = `*🔔 NEW ENQUIRY FROM WEBSITE 🔔*
-*Source:* Visit Valiyaparamba Platform
-
-*Name:* ${formData.name}
-*Phone:* ${formData.phone}
-*Email:* ${formData.email || 'Not provided'}
-*Service:* ${formData.service}
-*Date:* ${formData.date}`;
-
+        const message = `*🔔 NEW ENQUIRY FROM WEBSITE 🔔*\n*Source:* Visit Valiyaparamba Platform\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email || 'Not provided'}\n*Service:* ${formData.service}\n*Date:* ${formData.date}`;
         const whatsappUrl = `https://wa.me/${friendNumber}?text=${encodeURIComponent(message)}`;
-        
         window.open(whatsappUrl, '_blank');
-        
+
+        // 2. SEND TO BACKEND DATABASE (Silently in background)
+        fetch('https://vb-tourism-backend.onrender.com/api/bookings', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: formData.name,
+                email: formData.email || 'no-email@provided.com', 
+                service: formData.service,
+                phone: formData.phone,
+                date: formData.date
+            })
+        }).catch(error => console.error("❌ Backend connection failed:", error));
+
+        // 3. SEND EMAILJS NOTIFICATION
+        const templateParams = {
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email || 'Not provided',
+            service: formData.service,
+            date: formData.date
+        };
+
+        emailjs.send(
+            'service_31x27d7',       
+            'template_imcqz89',      
+            templateParams,
+            'Lq6-PF8FnyNA_z__J'      
+        )
+        .then((response) => {
+            console.log('✅ EmailJS Sent Successfully!', response.status, response.text);
+        })
+        .catch((error) => {
+            console.error('❌ EmailJS Failed:', error);
+        });
+
+        // 4. RESET & CLOSE
         setFormData({
             name: '',
             phone: '',
@@ -92,7 +103,7 @@ export default function Home() {
                 <div className="container">
                     <h1 className="display-4 fw-bold text-shadow-sm">Explore Valiyaparamba Backwaters</h1>
                     <p className="lead mb-4 text-shadow-sm">Peaceful houseboat cruises, beautiful beaches, and authentic Kerala village life.</p>
-                    <button onClick={() => setShowModal(true)} className="btn btn-warning btn-lg px-4 fw-bold shadow hover-card">
+                    <button onClick={() => setShowModal(true)} className="btn btn-warning btn-lg px-4 fw-bold shadow">
                         Send an Enquiry
                     </button>
                 </div>
@@ -103,41 +114,41 @@ export default function Home() {
                     <h2 className="mb-4">Why Visit Valiyaparamba</h2>
                     <p className="text-muted mb-5">Valiyaparamba is one of the most peaceful backwater destinations in northern Kerala.</p>
                     <div className="row mt-4">
-                        <div className="col-md-3 hover-card">
+                        <div className="col-md-3">
                             <h4 className="display-6">🌴</h4><h6 className="mt-3">Beautiful Backwaters</h6>
                         </div>
-                        <div className="col-md-3 hover-card">
+                        <div className="col-md-3">
                             <h4 className="display-6">🚤</h4><h6 className="mt-3">Houseboat Cruises</h6>
                         </div>
-                        <div className="col-md-3 hover-card">
+                        <div className="col-md-3">
                             <h4 className="display-6">🏝</h4><h6 className="mt-3">Island Experience</h6>
                         </div>
-                        <div className="col-md-3 hover-card">
+                        <div className="col-md-3">
                             <h4 className="display-6">🌅</h4><h6 className="mt-3">Beautiful Sunsets</h6>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="p-5 bg-light pb-5">
-                <div className="container text-center mb-4">
+            <section className="p-5 bg-light">
+                <div className="container text-center">
                     <h2 className="mb-5">Core Experiences</h2>
                     <div className="row g-4 justify-content-center">
                         <div className="col-md-5">
-                            <div className="card h-100 shadow-sm border-0 hover-card">
+                            <div className="card h-100 shadow-sm border-0">
                                 <img src="/images/houseboat.jpg" className="card-img-top" style={{ height: "250px", objectFit: "cover" }} alt="Houseboat" />
                                 <div className="card-body p-4">
-                                    <h5 className="mb-3 text-tropical">Luxury Houseboat Cruise</h5>
-                                    <p className="text-muted mb-0">Experience the tranquil Kerala backwaters in our premium traditional houseboats.</p>
+                                    <h5 className="mb-3">Luxury Houseboat Cruise</h5>
+                                    <p className="text-muted mb-0">Experience the tranquil Kerala backwaters in our premium houseboats.</p>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-5">
-                            <div className="card h-100 shadow-sm border-0 hover-card">
+                            <div className="card h-100 shadow-sm border-0">
                                 <img src="/images/homestay.jpg" className="card-img-top" style={{ height: "250px", objectFit: "cover" }} alt="Homestay" />
                                 <div className="card-body p-4">
-                                    <h5 className="mb-3 text-tropical">Authentic Homestays</h5>
-                                    <p className="text-muted mb-0">Stay with local families and enjoy legendary coastal Kerala hospitality and seafood.</p>
+                                    <h5 className="mb-3">Authentic Homestays</h5>
+                                    <p className="text-muted mb-0">Enjoy legendary coastal Kerala hospitality and fresh seafood.</p>
                                 </div>
                             </div>
                         </div>
@@ -145,17 +156,14 @@ export default function Home() {
                 </div>
             </section>
 
-            <footer className="bg-dark text-white py-2 mt-4">
-                <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <div className="text-center text-md-start mb-2 mb-md-0">
-                        <p className="mb-0" style={{ fontSize: "0.85rem" }}>© 2026 visitvaliyaparamba.com</p>
-                        <p className="mb-0 text-muted" style={{ fontSize: "0.75rem" }}>Thrikaripur, Kerala, India</p>
+            <footer className="bg-dark text-white py-3">
+                <div className="container d-flex justify-content-between align-items-center">
+                    <div>
+                        <p className="mb-0 small">© 2026 visitvaliyaparamba.com</p>
+                        <p className="mb-0 text-muted extra-small">Thrikaripur, Kerala, India</p>
                     </div>
-
-                    <div className="d-flex align-items-center" title="Total Visitors">
-                        <span className="badge bg-secondary fs-6 px-3 py-2 shadow-sm">
-                            {visitors}
-                        </span>
+                    <div className="badge bg-secondary px-3 py-2">
+                        Visitors: {visitors}
                     </div>
                 </div>
             </footer>
@@ -163,46 +171,42 @@ export default function Home() {
             {showModal && (
                 <>
                     <div className="modal-backdrop fade show" onClick={() => setShowModal(false)}></div>
-                    <div className="modal fade show d-block" tabIndex="-1" role="dialog">
+                    <div className="modal fade show d-block" tabIndex="-1">
                         <div className="modal-dialog modal-dialog-centered">
                             <div className="modal-content shadow-lg border-0">
                                 <div className="modal-header bg-dark text-white">
                                     <h5 className="modal-title">Send an Enquiry</h5>
                                     <button type="button" className="btn-close btn-close-white" onClick={() => setShowModal(false)}></button>
                                 </div>
-                                <div className="modal-body p-4 text-start">
+                                <div className="modal-body p-4">
                                     <form onSubmit={handleWhatsAppSubmit}>
                                         <div className="mb-3">
-                                            <label className="form-label text-muted small mb-1">Full Name</label>
-                                            <input type="text" name="name" className="form-control" placeholder="Enter your name" required value={formData.name} onChange={handleChange} />
+                                            <label className="form-label small">Full Name</label>
+                                            <input type="text" name="name" className="form-control" required value={formData.name} onChange={handleChange} />
                                         </div>
                                         <div className="mb-3">
-                                            <label className="form-label text-muted small mb-1">WhatsApp Number</label>
+                                            <label className="form-label small">WhatsApp Number</label>
                                             <input type="tel" name="phone" className="form-control" placeholder="+91" required value={formData.phone} onChange={handleChange} />
                                         </div>
                                         <div className="mb-3">
-                                            <label className="form-label text-muted small mb-1">Email Address (Optional)</label>
-                                            <input type="email" name="email" className="form-control" placeholder="name@example.com" value={formData.email} onChange={handleChange} />
+                                            <label className="form-label small">Email Address (Optional)</label>
+                                            <input type="email" name="email" className="form-control" value={formData.email} onChange={handleChange} />
                                         </div>
                                         <div className="row mb-4">
                                             <div className="col-6">
-                                                <label className="form-label text-muted small mb-1">Select Service</label>
-                                                <select name="service" className="form-select" required value={formData.service} onChange={handleChange}>
+                                                <label className="form-label small">Select Service</label>
+                                                <select name="service" className="form-select" value={formData.service} onChange={handleChange}>
                                                     <option value="Houseboat Cruise">Houseboat Cruise</option>
                                                     <option value="Homestay Experience">Homestay Experience</option>
                                                 </select>
                                             </div>
                                             <div className="col-6">
-                                                <label className="form-label text-muted small mb-1">Date</label>
+                                                <label className="form-label small">Date</label>
                                                 <input type="date" name="date" className="form-control" required value={formData.date} onChange={handleChange} />
                                             </div>
                                         </div>
-                                        <button 
-                                            type="submit" 
-                                            className="btn btn-warning w-100 fs-6 shadow-sm hover-card"
-                                            disabled={isSubmitting}
-                                        >
-                                            {isSubmitting ? "Sending..." : "Send Enquiry via WhatsApp"}
+                                        <button type="submit" className="btn btn-warning w-100 fw-bold" disabled={isSubmitting}>
+                                            {isSubmitting ? "Processing..." : "Send Enquiry via WhatsApp"}
                                         </button>
                                     </form>
                                 </div>
