@@ -12,9 +12,9 @@ export default function Admin() {
 
     const fetchBookings = async () => {
         try {
-            const response = await fetch(`https://vb-tourism-backend.onrender.com/api/bookings/${id}`);
+            const response = await fetch('https://vb-tourism-backend.onrender.com/api/bookings');
             const data = await response.json();
-            
+
             // Sort to show newest bookings first (assuming your backend sends an array)
             const sortedData = Array.isArray(data) ? data.reverse() : [];
             setBookings(sortedData);
@@ -105,8 +105,8 @@ export default function Admin() {
                                             </td>
                                             <td className="align-middle text-center">
                                                 {/* --- RESTORED DELETE BUTTON --- */}
-                                                <button 
-                                                    onClick={() => handleDelete(booking._id)} 
+                                                <button
+                                                    onClick={() => handleDelete(booking._id)}
                                                     className="btn btn-sm btn-outline-danger shadow-sm"
                                                     title="Delete Enquiry"
                                                 >
