@@ -156,12 +156,33 @@ export default function About() {
                                     <span className="small fw-bold text-tropical">Check Fares ↗</span>
                                 </div>
                             </div>
+                            
 
                         </div>
                     </div>
 
                 </div>
             </div>
+
+            {/* --- Amazon Affiliate Card --- */}
+<div className="card shadow-sm border-0 hover-card mt-4">
+    <div className="card-body text-center p-4">
+        <h5 className="mb-2">🌴 Kerala Travel Essentials</h5>
+        <p className="text-muted small mb-3">
+            Getting ready for your backwater cruise? Check out our top recommended travel gear.
+        </p>
+        
+        {/* The Affiliate Button with YOUR link */}
+        <a 
+            href="https://amzn.to/41lopW1" 
+            target="_blank" 
+            rel="noopener noreferrer sponsored" 
+            className="btn btn-warning w-100 fw-bold shadow-sm"
+        >
+            View on Amazon 🛒
+        </a>
+    </div>
+</div>
 
             {/* Footer */}
             <footer className="bg-dark text-white text-center p-3 mt-4">
