@@ -6,7 +6,7 @@ export default function About() {
             {/* Navbar */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
-                    <Link className="navbar-brand" to="/">Visit Valiyaparamba</Link>
+                    <Link className="navbar-brand" to="/">Welcome Valiyaparamba</Link>
                     <ul className="navbar-nav ms-auto flex-row gap-4">
                         <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
                         <li className="nav-item"><Link className="nav-link active" to="/about">About</Link></li>
@@ -128,10 +128,29 @@ export default function About() {
 
                     </div>
 
-                    {/* RIGHT COLUMN */}
+                    {/* RIGHT COLUMN (Sidebar is inside here now!) */}
                     <div className="col-lg-4">
                         <div className="sidebar sticky-top" style={{ top: "20px" }}>
-                            <h5 className="mb-4">Travel Essentials</h5>
+                            
+                            {/* --- Amazon Affiliate Card (Properly Placed!) --- */}
+                            <div className="card shadow-sm border-0 hover-card mb-4 bg-white">
+                                <div className="card-body text-center p-4">
+                                    <h5 className="mb-2">🌴 Travel Essentials</h5>
+                                    <p className="text-muted small mb-3">
+                                        Getting ready for your backwater cruise? Check out our top recommended travel gear.
+                                    </p>
+                                    <a 
+                                        href="https://amzn.to/41lopW1" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer sponsored" 
+                                        className="btn btn-warning w-100 fw-bold shadow-sm"
+                                    >
+                                        View on Amazon 🛒
+                                    </a>
+                                </div>
+                            </div>
+
+                            <h5 className="mb-4 mt-2">More Recommendations</h5>
                             
                             <div className="card mb-3 border-0 shadow-sm hover-card">
                                 <div className="card-body">
@@ -157,32 +176,11 @@ export default function About() {
                                 </div>
                             </div>
                             
-
                         </div>
                     </div>
 
                 </div>
             </div>
-
-            {/* --- Amazon Affiliate Card --- */}
-<div className="card shadow-sm border-0 hover-card mt-4">
-    <div className="card-body text-center p-4">
-        <h5 className="mb-2">🌴 Kerala Travel Essentials</h5>
-        <p className="text-muted small mb-3">
-            Getting ready for your backwater cruise? Check out our top recommended travel gear.
-        </p>
-        
-        {/* The Affiliate Button with YOUR link */}
-        <a 
-            href="https://amzn.to/41lopW1" 
-            target="_blank" 
-            rel="noopener noreferrer sponsored" 
-            className="btn btn-warning w-100 fw-bold shadow-sm"
-        >
-            View on Amazon 🛒
-        </a>
-    </div>
-</div>
 
             {/* Footer */}
             <footer className="bg-dark text-white text-center p-3 mt-4">
