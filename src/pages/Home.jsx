@@ -97,22 +97,20 @@ export default function Home() {
                     </ul>
                 </div>
             </nav>
-
-            <section className="hero text-center text-white d-flex align-items-center justify-content-center"
-                style={{ background: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/hero.jpg') center/cover", minHeight: "70vh", padding: "60px 15px" }}>
-                <div className="container">
-                    {/* Changed display-4 to responsive inline clamp and standard h1 to fix mobile overlap */}
-                    <h1 className="fw-bold text-shadow-sm mb-3" style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", lineHeight: "1.2" }}>
-                        Explore Valiyaparamba Backwaters
-                    </h1>
-                    <p className="lead mb-4 text-shadow-sm" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
-                        Peaceful houseboat cruises, beautiful beaches, and authentic Kerala village life.
-                    </p>
-                    <button onClick={() => setShowModal(true)} className="btn btn-warning btn-lg px-4 fw-bold shadow">
-                        Send an Enquiry
-                    </button>
-                </div>
-            </section>
+<section className="hero text-center text-white d-flex align-items-center justify-content-center" style={{ minHeight: '40vh', padding: '80px 15px', backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/images/hero.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="container">
+        <h1 className="fw-bold text-shadow-sm mb-3" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', lineHeight: '1.2' }}>
+            Explore Valiyaparamba Backwaters
+        </h1>
+        <p className="lead mb-4 text-shadow-sm" style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)' }}>
+            Peaceful houseboat cruises, beautiful beaches, and authentic Kerala village life.
+        </p>
+        <button onClick={() => setShowModal(true)} className="btn btn-warning btn-lg px-4 fw-bold shadow">
+            Send an Enquiry
+        </button>
+    </div>
+</section>
+            
 
             <section className="p-5 text-center bg-white">
                 <div className="container">
