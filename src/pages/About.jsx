@@ -128,29 +128,10 @@ export default function About() {
 
                     </div>
 
-                    {/* RIGHT COLUMN (Sidebar is inside here now!) */}
+                    {/* RIGHT COLUMN: Original Sidebar with Placeholders */}
                     <div className="col-lg-4">
                         <div className="sidebar sticky-top" style={{ top: "20px" }}>
-                            
-                            {/* --- Amazon Affiliate Card (Properly Placed!) --- */}
-                            <div className="card shadow-sm border-0 hover-card mb-4 bg-white">
-                                <div className="card-body text-center p-4">
-                                    <h5 className="mb-2">🌴 Travel Essentials</h5>
-                                    <p className="text-muted small mb-3">
-                                        Getting ready for your backwater cruise? Check out our top recommended travel gear.
-                                    </p>
-                                    <a 
-                                        href="https://amzn.to/41lopW1" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer sponsored" 
-                                        className="btn btn-warning w-100 fw-bold shadow-sm"
-                                    >
-                                        View on Amazon 🛒
-                                    </a>
-                                </div>
-                            </div>
-
-                            <h5 className="mb-4 mt-2">More Recommendations</h5>
+                            <h5 className="mb-4">Travel Essentials</h5>
                             
                             <div className="card mb-3 border-0 shadow-sm hover-card">
                                 <div className="card-body">
