@@ -1,19 +1,31 @@
+/* --- Global Styles --- */
+body {
+    /* This removes the need for the inline font-family in React */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* --- Hero Section (Fully cleaned up!) --- */
 .hero {
-    background: url("/images/hero.jpg") center/cover no-repeat;
-    height: 500px;
+    /* Gradient and image path moved here */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/valiyaparamba-hero-kerala.jpg") center/cover no-repeat;
+    min-height: 40vh;
+    padding: 80px 15px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .hero h1 {
-    font-size: 48px;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.2;
     font-weight: bold;
 }
 
 .hero p {
-    font-size: 20px;
+    font-size: clamp(1rem, 2vw, 1.25rem);
 }
 
+/* --- Sidebar --- */
 .sidebar {
     background: #f8f9fa;
     padding: 20px;
@@ -24,14 +36,11 @@
     border-radius: 6px;
 }
 
-/* --- New Beautification Styles --- */
-
-/* A calm, tropical backwater teal */
+/* --- Beautification & Animations --- */
 .text-tropical {
     color: #028090; 
 }
 
-/* Smooth hover animation for affiliate cards */
 .hover-card {
     transition: all 0.3s ease-in-out;
     cursor: pointer;
@@ -42,19 +51,24 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Cinematic Image Zoom */
+/* --- Cinematic Image Zoom --- */
 .img-zoom-wrapper {
-    overflow: hidden; /* Keeps the image inside the box when it zooms */
-    border-radius: 8px;
+    overflow: hidden; 
+    border-radius: 8px 8px 0 0; /* Keeps top corners rounded for cards */
 }
 
 .img-cinematic {
-    transition: transform 0.8s ease-out; /* Super smooth, slow zoom */
+    transition: transform 0.8s ease-out; 
     width: 100%;
-    max-height: 450px;
-    object-fit: cover; /* Ensures the image doesn't stretch weirdly */
 }
 
 .img-zoom-wrapper:hover .img-cinematic {
-    transform: scale(1.05); /* Zooms in just 5% */
+    transform: scale(1.05); 
+}
+
+/* --- NEW: Landscape Experience Images --- */
+.experience-img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Forces the beautiful wide landscape look */
+    object-fit: cover; /* Prevents stretching */
 }
