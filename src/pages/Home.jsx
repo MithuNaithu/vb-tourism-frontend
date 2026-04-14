@@ -12,7 +12,7 @@ export default function Home() {
         name: '',
         phone: '',
         email: '',
-        service: 'Houseboat Cruise', 
+        service: 'Houseboat Cruise',
         date: ''
     });
 
@@ -31,9 +31,9 @@ export default function Home() {
         e.preventDefault();
         setIsSubmitting(true);
 
-        const friendNumber = "919497401671"; 
+        const friendNumber = "919497401671";
         const message = `*🔔 NEW ENQUIRY FROM WEBSITE 🔔*\n*Source:* Visit Valiyaparamba Platform\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email || 'Not provided'}\n*Service:* ${formData.service}\n*Date:* ${formData.date}`;
-        
+
         const whatsappUrl = `https://wa.me/${friendNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
 
@@ -58,8 +58,8 @@ export default function Home() {
         };
 
         emailjs.send('service_31x27d7', 'template_imcqz89', templateParams, 'Lq6-PF8FnyNA_z__J')
-        .then(() => console.log('✅ EmailJS Sent Successfully!'))
-        .catch((error) => console.error('❌ EmailJS Failed:', error));
+            .then(() => console.log('✅ EmailJS Sent Successfully!'))
+            .catch((error) => console.error('❌ EmailJS Failed:', error));
 
         setFormData({ name: '', phone: '', email: '', service: 'Houseboat Cruise', date: '' });
         setShowModal(false);
@@ -68,18 +68,18 @@ export default function Home() {
 
     return (
         <div className="position-relative">
-            
+
             {/* SEO TAGS RESTORED */}
             <Helmet>
                 <title>Best Houseboat Booking in Valiyaparamba | Resorts & Homestay in Kasaragod Kerala</title>
                 <meta name="description" content="Book the best houseboat cruise in Valiyaparamba backwaters, Kasaragod. Explore luxury resorts, budget homestays, and peaceful Kerala village tourism experiences." />
                 <meta name="keywords" content="Valiyaparamba houseboat booking, best resorts in Valiyaparamba, homestay in Valiyaparamba Kerala, Kasaragod backwater tourism, Kavvayi island houseboat, Kerala backwater cruise booking, budget homestay Kasaragod, luxury houseboat Kerala, Valiyaparamba travel guide, things to do in Valiyaparamba" />
-                
+
                 <meta property="og:title" content="Valiyaparamba Houseboat Booking Kerala" />
                 <meta property="og:description" content="Book houseboats, resorts and homestays in Valiyaparamba backwaters." />
                 <meta property="og:image" content="/images/valiyaparamba-hero-kerala.jpg" />
                 <meta property="og:type" content="website" />
-                
+
                 <script type="application/ld+json">
                     {`
                     {
@@ -98,6 +98,9 @@ export default function Home() {
                     `}
                 </script>
             </Helmet>
+            <Link to="/about">
+                Learn more about Valiyaparamba backwaters
+            </Link>
 
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
@@ -112,7 +115,7 @@ export default function Home() {
             <section className="hero text-center text-white">
                 <div className="container">
                     <h1 className="fw-bold text-shadow-sm mb-3">
-                        Explore Valiyaparamba Backwaters
+                        Best Houseboat Booking in Valiyaparamba Backwaters
                     </h1>
                     <p className="lead mb-4 text-shadow-sm">
                         Peaceful houseboat cruises, beautiful beaches, and authentic Kerala village life.
@@ -124,13 +127,21 @@ export default function Home() {
             </section>
 
             <section className="p-4 text-center">
-                <h2>Valiyaparamba Backwater Tourism in Kasaragod</h2>
+                <h2>Houseboat, Resorts and Homestays in Valiyaparamba</h2>
                 <p>
                     Valiyaparamba is one of the most beautiful and unexplored backwater destinations in Kerala.
                     Book houseboat cruises, homestays, and resorts in Valiyaparamba and enjoy peaceful village life,
                     stunning beaches, and authentic Kerala experiences.
                 </p>
             </section>
+            <section className="p-4 text-center">
+  <h2>Book Houseboat and Homestays in Valiyaparamba</h2>
+  <p>
+    Looking for houseboat booking in Valiyaparamba? We offer peaceful backwater cruises
+    and authentic homestay experiences in Kasaragod Kerala. Enjoy scenic views,
+    island life, and traditional village tourism in one of Kerala’s most beautiful destinations.
+  </p>
+</section>
 
             <section className="p-5 text-center bg-white">
                 <div className="container">
@@ -155,13 +166,13 @@ export default function Home() {
 
             <section className="p-5 bg-light pb-5">
                 <div className="container text-center mb-4">
-                    <h2 className="mb-5">Core Experiences</h2>
+                    <h2 className="mb-5">Houseboat and Homestays in Valiyaparamba</h2>
                     <div className="row g-4 justify-content-center">
                         <div className="col-md-5">
                             <div className="card h-100 shadow-sm border-0 hover-card img-zoom-wrapper">
                                 <img src="/images/valiyaparamba-houseboat-kerala.jpg" className="card-img-top img-cinematic experience-img" alt="Valiyaparamba houseboat cruise in Kasaragod Kerala backwaters" loading="lazy" />
                                 <div className="card-body p-4">
-                                    <h5 className="mb-3 text-tropical">Luxury Houseboat Cruise</h5>
+                                    <h5 className="mb-3 text-tropical">Valiyaparamba Houseboat Booking</h5>
                                     <p className="text-muted mb-0">Experience the tranquil Kerala backwaters in our premium traditional houseboats.</p>
                                 </div>
                             </div>
@@ -170,7 +181,7 @@ export default function Home() {
                             <div className="card h-100 shadow-sm border-0 hover-card img-zoom-wrapper">
                                 <img src="/images/valiyaparamba-homestay-kerala.jpg" className="card-img-top img-cinematic experience-img" alt="Best homestay in Valiyaparamba backwaters Kerala village stay experience" loading="lazy" />
                                 <div className="card-body p-4">
-                                    <h5 className="mb-3 text-tropical">Authentic Homestays</h5>
+                                    <h5 className="mb-3 text-tropical">Best Homestays in Valiyaparamba Kerala</h5>
                                     <p className="text-muted mb-0">Stay with local families and enjoy legendary coastal Kerala hospitality and seafood.</p>
                                 </div>
                             </div>
