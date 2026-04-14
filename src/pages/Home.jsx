@@ -98,10 +98,7 @@ export default function Home() {
                     `}
                 </script>
             </Helmet>
-            <Link to="/about">
-                Learn more about Valiyaparamba backwaters
-            </Link>
-
+    
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
                     <Link className="navbar-brand" to="/">Visit Valiyaparamba</Link>
@@ -126,22 +123,18 @@ export default function Home() {
                 </div>
             </section>
 
+
             <section className="p-4 text-center">
-                <h2>Houseboat, Resorts and Homestays in Valiyaparamba</h2>
+                <h2>Book Houseboat and Homestays in Valiyaparamba</h2>
                 <p>
-                    Valiyaparamba is one of the most beautiful and unexplored backwater destinations in Kerala.
-                    Book houseboat cruises, homestays, and resorts in Valiyaparamba and enjoy peaceful village life,
-                    stunning beaches, and authentic Kerala experiences.
+                    Looking for houseboat booking in Valiyaparamba? We offer peaceful backwater cruises
+                    and authentic homestay experiences in Kasaragod Kerala. Enjoy scenic views,
+                    island life, and traditional village tourism in one of Kerala’s most beautiful destinations.
+                    <Link to="/about">
+                        Learn more about Valiyaparamba backwaters
+                    </Link>
                 </p>
             </section>
-            <section className="p-4 text-center">
-  <h2>Book Houseboat and Homestays in Valiyaparamba</h2>
-  <p>
-    Looking for houseboat booking in Valiyaparamba? We offer peaceful backwater cruises
-    and authentic homestay experiences in Kasaragod Kerala. Enjoy scenic views,
-    island life, and traditional village tourism in one of Kerala’s most beautiful destinations.
-  </p>
-</section>
 
             <section className="p-5 text-center bg-white">
                 <div className="container">
