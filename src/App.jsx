@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Home from './pages/Home';
 import About from './pages/About';
 // We will create a Navbar component later
