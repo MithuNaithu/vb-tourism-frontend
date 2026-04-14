@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async'; // <-- Added SEO Provider
+import { Helmet } from 'react-helmet-async';
 import Home from './pages/Home';
 import About from './pages/About';
 import Admin from './pages/Admin'; 
