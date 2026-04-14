@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async'; // 👈 THIS WAS THE MISSING LINE!
 import Home from './pages/Home';
 import About from './pages/About';
 import Admin from './pages/Admin'; 
@@ -10,8 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* Your secure Admin route is safely back! */}
-          <Route path="/admin-naithik-mithika-aryav-6j-secure" element={<Admin />} />
+          <Route path="/admin-vp-private-2026-secure" element={<Admin />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
