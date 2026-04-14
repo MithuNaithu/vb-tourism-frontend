@@ -142,7 +142,7 @@ export default function Home() {
                 </div>
             </nav>
 
-            <section className="hero text-center text-white d-flex align-items-center justify-content-center" style={{ minHeight: '40vh', padding: '80px 15px', backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/images/hero.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <section className="hero text-center text-white d-flex align-items-center justify-content-center" style={{ minHeight: '40vh', padding: '80px 15px', backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/images/valiyaparamba-hero-kerala.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="container">
                     <h1 className="fw-bold text-shadow-sm mb-3" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', lineHeight: '1.2' }}>
                         Best Houseboat Booking in Valiyaparamba Backwaters        </h1>
