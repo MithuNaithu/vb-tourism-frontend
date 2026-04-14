@@ -4,21 +4,21 @@ import { Helmet } from 'react-helmet-async'; // 👈 SEO Import added!
 export default function About() {
     return (
         <div style={{ fontFamily: "'Segoe UI', Roboto, Helvetica, Arial, sans-serif" }}>
-            
+
             {/* 🚀 PRO-LEVEL SEO FOR THE ABOUT PAGE */}
             <Helmet>
                 <title>About Valiyaparamba Island | History & Geography of Kerala's Hidden Gem</title>
-                
-                <meta 
-                    name="description" 
-                    content="Discover the untouched beauty of Valiyaparamba Island and the Kavvayi Kayal backwater system in northern Kerala. Learn about our local culture and authentic village life." 
+
+                <meta
+                    name="description"
+                    content="Discover the untouched beauty of Valiyaparamba Island and the Kavvayi Kayal backwater system in northern Kerala. Learn about our local culture and authentic village life."
                 />
-                
-                <meta 
-                    name="keywords" 
-                    content="Valiyaparamba geography, Kavvayi Kayal system, Kasaragod tourism history, Tejaswini river, Kerala island life, authentic Kerala backwaters" 
+
+                <meta
+                    name="keywords"
+                    content="Valiyaparamba geography, Kavvayi Kayal system, Kasaragod tourism history, Tejaswini river, Kerala island life, authentic Kerala backwaters"
                 />
-                
+
                 {/* Social Sharing specific to About Page */}
                 <meta property="og:title" content="Discover Valiyaparamba: Kerala's Best Kept Secret" />
                 <meta property="og:description" content="Learn the history and geography of the pristine Kavvayi Kayal backwaters." />
@@ -44,6 +44,9 @@ export default function About() {
                     `}
                 </script>
             </Helmet>
+            <Link to="/">
+                Book houseboat in Valiyaparamba
+            </Link>
 
             {/* Navbar */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -59,10 +62,10 @@ export default function About() {
             {/* Main Content */}
             <div className="container mt-4 mb-5">
                 <div className="row">
-                    
+
                     {/* LEFT COLUMN: Premium Copywriting + Core Geographical Facts */}
                     <div className="col-lg-8">
-                        
+
                         {/* Section 1: Introduction */}
                         <section className="text-center p-5 bg-light mb-4 rounded">
                             <h1 className="mb-2">Valiyaparamba Backwater</h1>
@@ -128,7 +131,7 @@ export default function About() {
                         {/* Section 5: Activities & Nearby */}
                         <section className="p-5 bg-light mb-4 rounded text-start">
                             <h3 className="mb-4">Explore the Untouched</h3>
-                            
+
                             <h5 className="text-tropical mb-3">Things to Do</h5>
                             <ul className="text-muted mb-4 lh-lg">
                                 <li><span className="text-dark fw-medium">Houseboat Cruises:</span> Drift through backwaters with home-cooked Kerala cuisine.</li>
@@ -157,10 +160,10 @@ export default function About() {
                         {/* Final Cinematic Image */}
                         <section className="mt-5 mb-2 text-center">
                             <div className="img-zoom-wrapper shadow-sm">
-                                <img 
-                                    src="/images/valiyaparamba-backwater-kerala.jpg" 
-                                    className="img-cinematic" 
-                                    alt="Beautiful View of Valiyaparamba Backwaters" 
+                                <img
+                                    src="/images/valiyaparamba-backwater-kerala.jpg"
+                                    className="img-cinematic"
+                                    alt="Beautiful View of Valiyaparamba Backwaters"
                                     loading="lazy"
                                 />
                             </div>
@@ -175,7 +178,7 @@ export default function About() {
                     <div className="col-lg-4">
                         <div className="sidebar sticky-top" style={{ top: "20px" }}>
                             <h5 className="mb-4">Travel Essentials</h5>
-                            
+
                             <div className="card mb-3 border-0 shadow-sm hover-card">
                                 <div className="card-body">
                                     <h6>🎒 Travel Backpack</h6>
@@ -199,7 +202,7 @@ export default function About() {
                                     <span className="small fw-bold text-tropical">Check Fares ↗</span>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
 
