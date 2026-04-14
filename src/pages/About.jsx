@@ -116,7 +116,7 @@ export default function About() {
                         <section className="mt-5 mb-2 text-center">
                             <div className="img-zoom-wrapper shadow-sm">
                                 <img 
-                                    src="/images/backwater.jpg" 
+                                    src="/images/valiyaparamba-backwater-kerala.jpg" 
                                     className="img-cinematic" 
                                     alt="Beautiful View of Valiyaparamba Backwaters" 
                                 />

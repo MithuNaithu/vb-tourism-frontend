@@ -109,7 +109,7 @@ export default function Home() {
                 {/* Social Sharing */}
                 <meta property="og:title" content="Valiyaparamba Houseboat Booking Kerala" />
                 <meta property="og:description" content="Book houseboats, resorts and homestays in Valiyaparamba backwaters." />
-                <meta property="og:image" content="/images/hero.jpg" />
+                <meta property="og:image" content="/images/valiyaparamba-hero-kerala.jpg" />
                 <meta property="og:type" content="website" />
                 
                 {/* JSON-LD Script correctly placed inside Helmet */}
