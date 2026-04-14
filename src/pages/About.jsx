@@ -44,10 +44,7 @@ export default function About() {
                     `}
                 </script>
             </Helmet>
-            <Link to="/">
-                Book houseboat in Valiyaparamba
-            </Link>
-
+            
             {/* Navbar */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
@@ -134,7 +131,7 @@ export default function About() {
 
                             <h5 className="text-tropical mb-3">Things to Do</h5>
                             <ul className="text-muted mb-4 lh-lg">
-                                <li><span className="text-dark fw-medium">Houseboat Cruises:</span> Drift through backwaters with home-cooked Kerala cuisine.</li>
+                                <li><span className="text-dark fw-medium"><link to="/">Houseboat Cruises</link>:</span> Drift through backwaters with home-cooked Kerala cuisine.</li>
                                 <li><span className="text-dark fw-medium">Canoe Rides:</span> Navigate narrower canals perfect for birdwatching.</li>
                                 <li><span className="text-dark fw-medium">Village Walks:</span> Stroll through coconut groves and interact with locals.</li>
                             </ul>
