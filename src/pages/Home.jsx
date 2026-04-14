@@ -54,7 +54,7 @@ export default function Home() {
                     <h1 className="display-4 fw-bold text-shadow-sm">Explore Valiyaparamba Backwaters</h1>
                     <p className="lead mb-4 text-shadow-sm">Peaceful houseboat cruises, beautiful beaches, and authentic Kerala village life.</p>
                     <button onClick={() => setShowModal(true)} className="btn btn-warning btn-lg px-4 fw-bold shadow hover-card">
-                        Book Your Experience
+                        Send an Enquiry
                     </button>
                 </div>
             </section>
