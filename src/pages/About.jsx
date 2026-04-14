@@ -1,12 +1,54 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'; // 👈 SEO Import added!
 
 export default function About() {
     return (
         <div style={{ fontFamily: "'Segoe UI', Roboto, Helvetica, Arial, sans-serif" }}>
+            
+            {/* 🚀 PRO-LEVEL SEO FOR THE ABOUT PAGE */}
+            <Helmet>
+                <title>About Valiyaparamba Island | History & Geography of Kerala's Hidden Gem</title>
+                
+                <meta 
+                    name="description" 
+                    content="Discover the untouched beauty of Valiyaparamba Island and the Kavvayi Kayal backwater system in northern Kerala. Learn about our local culture and authentic village life." 
+                />
+                
+                <meta 
+                    name="keywords" 
+                    content="Valiyaparamba geography, Kavvayi Kayal system, Kasaragod tourism history, Tejaswini river, Kerala island life, authentic Kerala backwaters" 
+                />
+                
+                {/* Social Sharing specific to About Page */}
+                <meta property="og:title" content="Discover Valiyaparamba: Kerala's Best Kept Secret" />
+                <meta property="og:description" content="Learn the history and geography of the pristine Kavvayi Kayal backwaters." />
+                <meta property="og:image" content="/images/valiyaparamba-backwater-kerala.jpg" />
+                <meta property="og:type" content="article" />
+
+                {/* Google Structured Data for an 'About' Page */}
+                <script type="application/ld+json">
+                    {`
+                    {
+                      "@context": "https://schema.org",
+                      "@type": "AboutPage",
+                      "mainEntity": {
+                        "@type": "Place",
+                        "name": "Valiyaparamba",
+                        "description": "A scenic backwater island in the Kasaragod district of Kerala, India, formed by the Kavvayi Kayal and Tejaswini River.",
+                        "containedInPlace": {
+                          "@type": "State",
+                          "name": "Kerala"
+                        }
+                      }
+                    }
+                    `}
+                </script>
+            </Helmet>
+
             {/* Navbar */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
-                    <Link className="navbar-brand" to="/">Welcome Valiyaparamba</Link>
+                    <Link className="navbar-brand" to="/">Visit Valiyaparamba</Link>
                     <ul className="navbar-nav ms-auto flex-row gap-4">
                         <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
                         <li className="nav-item"><Link className="nav-link active" to="/about">About</Link></li>
@@ -119,6 +161,7 @@ export default function About() {
                                     src="/images/valiyaparamba-backwater-kerala.jpg" 
                                     className="img-cinematic" 
                                     alt="Beautiful View of Valiyaparamba Backwaters" 
+                                    loading="lazy"
                                 />
                             </div>
                             <p className="text-muted mt-3 fst-italic small tracking-wide">
