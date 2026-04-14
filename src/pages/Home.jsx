@@ -69,6 +69,7 @@ export default function Home() {
     return (
         <div className="position-relative">
             
+            {/* SEO TAGS RESTORED */}
             <Helmet>
                 <title>Best Houseboat Booking in Valiyaparamba | Resorts & Homestay in Kasaragod Kerala</title>
                 <meta name="description" content="Book the best houseboat cruise in Valiyaparamba backwaters, Kasaragod. Explore luxury resorts, budget homestays, and peaceful Kerala village tourism experiences." />
@@ -117,7 +118,7 @@ export default function Home() {
                         Peaceful houseboat cruises, beautiful beaches, and authentic Kerala village life.
                     </p>
                     <button onClick={() => setShowModal(true)} className="btn btn-warning btn-lg px-4 fw-bold shadow hover-card">
-                        Book Your Experience
+                        Send an Enquiry
                     </button>
                 </div>
             </section>
@@ -228,7 +229,7 @@ export default function Home() {
                                             </div>
                                         </div>
                                         <button type="submit" className="btn btn-warning w-100 fs-6 shadow-sm hover-card" disabled={isSubmitting}>
-                                            {isSubmitting ? "Processing..." : "Confirm Booking via WhatsApp"}
+                                            {isSubmitting ? "Processing..." : "Send Enquiry via WhatsApp"}
                                         </button>
                                     </form>
                                 </div>
