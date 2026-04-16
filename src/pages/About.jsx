@@ -44,11 +44,11 @@ export default function About() {
                     `}
                 </script>
             </Helmet>
-            
+
             {/* Navbar */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
-                    <Link className="navbar-brand" to="/">Visit Valiyaparamba</Link>
+                    <Link className="navbar-brand" to="/">Welcome Valiyaparamba</Link>
                     <ul className="navbar-nav ms-auto flex-row gap-4">
                         <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
                         <li className="nav-item"><Link className="nav-link active" to="/about">About</Link></li>
@@ -131,15 +131,41 @@ export default function About() {
 
                             <h5 className="text-tropical mb-3">Things to Do</h5>
                             <ul className="text-muted mb-4 lh-lg">
-                                <li><span className="text-dark fw-medium"><link to="/">Houseboat Cruises</link>:</span> Drift through backwaters with home-cooked Kerala cuisine.</li>
-                                <li><span className="text-dark fw-medium">Canoe Rides:</span> Navigate narrower canals perfect for birdwatching.</li>
-                                <li><span className="text-dark fw-medium">Village Walks:</span> Stroll through coconut groves and interact with locals.</li>
+
+                                <li>
+                                    <span className="text-dark fw-medium">Houseboat Cruises:</span>{' '}
+                                    Enjoy peaceful journeys through the backwaters with our{' '}
+                                    <Link to="/" className="text-decoration-none">
+                                        Valiyaparamba houseboat booking
+                                    </Link>{' '}
+                                    experience, including traditional Kerala meals.
+                                </li>
+
+                                <li>
+                                    <span className="text-dark fw-medium">Canoe Rides:</span>{' '}
+                                    Explore narrow canals and hidden village routes, perfect for birdwatching and photography in the Valiyaparamba backwaters.
+                                </li>
+
+                                <li>
+                                    <span className="text-dark fw-medium">Village Walks:</span>{' '}
+                                    Walk through coconut groves and interact with locals while experiencing authentic Kerala village life and culture.
+                                </li>
+
                             </ul>
 
                             <h5 className="text-tropical mb-3">Nearby Attractions</h5>
                             <ul className="text-muted mb-0 lh-lg">
-                                <li><span className="text-dark fw-medium">Bekal Fort & Beach:</span> Historic fort offering panoramic Arabian Sea views.</li>
-                                <li><span className="text-dark fw-medium">Mangrove Trails:</span> Explore biodiversity by kayak or foot.</li>
+
+                                <li>
+                                    <span className="text-dark fw-medium">Bekal Fort & Beach:</span>{' '}
+                                    Visit one of the largest forts in Kerala with stunning Arabian Sea views, located near Valiyaparamba in Kasaragod.
+                                </li>
+
+                                <li>
+                                    <span className="text-dark fw-medium">Mangrove Trails:</span>{' '}
+                                    Discover the rich biodiversity of Kerala’s mangrove forests through guided canoe rides and nature walks.
+                                </li>
+
                             </ul>
                         </section>
 
