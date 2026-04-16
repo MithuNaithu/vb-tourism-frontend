@@ -71,36 +71,36 @@ export default function Home() {
 
             {/* SEO TAGS RESTORED */}
             <Helmet>
-  {/* PRIMARY TITLE (Very Important) */}
-  <title>
-    Valiyaparamba Houseboat Booking | Nileswar & Kottappuram Houseboats, Resorts & Homestays Kerala
-  </title>
+                {/* PRIMARY TITLE (Very Important) */}
+                <title>
+                    Valiyaparamba Houseboat Booking | Nileswar & Kottappuram Houseboats, Resorts & Homestays Kerala
+                </title>
 
-  {/* META DESCRIPTION */}
-  <meta
-    name="description"
-    content="Book houseboat cruises in Valiyaparamba, Nileswar, and Kottappuram backwaters, Kasaragod Kerala. Best price for houseboats, resorts, and homestays with direct local booking."
-  />
+                {/* META DESCRIPTION */}
+                <meta
+                    name="description"
+                    content="Book houseboat cruises in Valiyaparamba, Nileswar, and Kottappuram backwaters, Kasaragod Kerala. Best price for houseboats, resorts, and homestays with direct local booking."
+                />
 
-  {/* CANONICAL URL */}
-  <link rel="canonical" href="https://www.valiyaparambatourism.com/" />
+                {/* CANONICAL URL */}
+                <link rel="canonical" href="https://www.valiyaparambatourism.com/" />
 
-  {/* OPEN GRAPH (Social Sharing) */}
-  <meta property="og:title" content="Valiyaparamba & Nileswar Houseboat Booking Kerala" />
-  <meta property="og:description" content="Book houseboats, resorts and homestays in Valiyaparamba, Nileswar and Kottappuram backwaters." />
-  <meta property="og:image" content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kerala.jpg" />
-  <meta property="og:url" content="https://www.valiyaparambatourism.com/" />
-  <meta property="og:type" content="website" />
+                {/* OPEN GRAPH (Social Sharing) */}
+                <meta property="og:title" content="Valiyaparamba & Nileswar Houseboat Booking Kerala" />
+                <meta property="og:description" content="Book houseboats, resorts and homestays in Valiyaparamba, Nileswar and Kottappuram backwaters." />
+                <meta property="og:image" content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kerala.jpg" />
+                <meta property="og:url" content="https://www.valiyaparambatourism.com/" />
+                <meta property="og:type" content="website" />
 
-  {/* TWITTER (Optional but good) */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Valiyaparamba Houseboat Booking Kerala" />
-  <meta name="twitter:description" content="Book houseboats and homestays in Valiyaparamba backwaters." />
-  <meta name="twitter:image" content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kerala.jpg" />
+                {/* TWITTER (Optional but good) */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Valiyaparamba Houseboat Booking Kerala" />
+                <meta name="twitter:description" content="Book houseboats and homestays in Valiyaparamba backwaters." />
+                <meta name="twitter:image" content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kerala.jpg" />
 
-  {/* STRUCTURED DATA (SEO BOOST) */}
-  <script type="application/ld+json">
-    {`
+                {/* STRUCTURED DATA (SEO BOOST) */}
+                <script type="application/ld+json">
+                    {`
     {
       "@context": "https://schema.org",
       "@type": "TravelAgency",
@@ -120,9 +120,9 @@ export default function Home() {
       }
     }
     `}
-  </script>
-</Helmet>
-    
+                </script>
+            </Helmet>
+
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
                     <Link className="navbar-brand" to="/">Visit Valiyaparamba</Link>
@@ -136,7 +136,9 @@ export default function Home() {
             <section className="hero text-center text-white">
                 <div className="container">
                     <h1 className="fw-bold text-shadow-sm mb-3">
-                        Best Houseboat Booking in Valiyaparamba Backwaters
+                        <h1>
+                            Valiyaparamba Houseboat Booking, Resorts & Homestays in Kasaragod Kerala
+                        </h1>
                     </h1>
                     <p className="lead mb-4 text-shadow-sm">
                         Peaceful houseboat cruises, beautiful beaches, and authentic Kerala village life.
@@ -154,9 +156,10 @@ export default function Home() {
                     Looking for houseboat booking in Valiyaparamba? We offer peaceful backwater cruises
                     and authentic homestay experiences in Kasaragod Kerala. Enjoy scenic views,
                     island life, and traditional village tourism in one of Kerala’s most beautiful destinations.
-                    <Link to="/about">
-                        Learn more about Valiyaparamba backwaters
-                    </Link>
+                </p>
+                <p>
+                    Explore our <Link to="/about">Valiyaparamba travel guide</Link> and learn about
+                    Kavvayi backwaters, island life, and tourism experiences.
                 </p>
             </section>
 
