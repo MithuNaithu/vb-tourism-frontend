@@ -71,33 +71,57 @@ export default function Home() {
 
             {/* SEO TAGS RESTORED */}
             <Helmet>
-                <title>Best Houseboat Booking in Valiyaparamba | Resorts & Homestay in Kasaragod Kerala</title>
-                <meta name="description" content="Book the best houseboat cruise in Valiyaparamba backwaters, Kasaragod. Explore luxury resorts, budget homestays, and peaceful Kerala village tourism experiences." />
-                <meta name="keywords" content="Valiyaparamba houseboat booking, best resorts in Valiyaparamba, homestay in Valiyaparamba Kerala, Kasaragod backwater tourism, Kavvayi island houseboat, Kerala backwater cruise booking, budget homestay Kasaragod, luxury houseboat Kerala, Valiyaparamba travel guide, things to do in Valiyaparamba" />
+  {/* PRIMARY TITLE (Very Important) */}
+  <title>
+    Valiyaparamba Houseboat Booking | Nileswar & Kottappuram Houseboats, Resorts & Homestays Kerala
+  </title>
 
-                <meta property="og:title" content="Valiyaparamba Houseboat Booking Kerala" />
-                <meta property="og:description" content="Book houseboats, resorts and homestays in Valiyaparamba backwaters." />
-                <meta property="og:image" content="/images/valiyaparamba-hero-kerala.jpg" />
-                <meta property="og:type" content="website" />
+  {/* META DESCRIPTION */}
+  <meta
+    name="description"
+    content="Book houseboat cruises in Valiyaparamba, Nileswar, and Kottappuram backwaters, Kasaragod Kerala. Best price for houseboats, resorts, and homestays with direct local booking."
+  />
 
-                <script type="application/ld+json">
-                    {`
-                    {
-                      "@context": "https://schema.org",
-                      "@type": "TouristDestination",
-                      "name": "Valiyaparamba Backwaters",
-                      "description": "Book houseboats, resorts, and homestays in Valiyaparamba, Kasaragod, Kerala.",
-                      "touristType": ["Couples", "Families"],
-                      "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Valiyaparamba",
-                        "addressRegion": "Kerala",
-                        "addressCountry": "India"
-                      }
-                    }
-                    `}
-                </script>
-            </Helmet>
+  {/* CANONICAL URL */}
+  <link rel="canonical" href="https://www.valiyaparambatourism.com/" />
+
+  {/* OPEN GRAPH (Social Sharing) */}
+  <meta property="og:title" content="Valiyaparamba & Nileswar Houseboat Booking Kerala" />
+  <meta property="og:description" content="Book houseboats, resorts and homestays in Valiyaparamba, Nileswar and Kottappuram backwaters." />
+  <meta property="og:image" content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kerala.jpg" />
+  <meta property="og:url" content="https://www.valiyaparambatourism.com/" />
+  <meta property="og:type" content="website" />
+
+  {/* TWITTER (Optional but good) */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Valiyaparamba Houseboat Booking Kerala" />
+  <meta name="twitter:description" content="Book houseboats and homestays in Valiyaparamba backwaters." />
+  <meta name="twitter:image" content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kerala.jpg" />
+
+  {/* STRUCTURED DATA (SEO BOOST) */}
+  <script type="application/ld+json">
+    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Valiyaparamba Tourism",
+      "description": "Houseboat booking in Valiyaparamba, Nileswar, and Kottappuram backwaters, Kasaragod Kerala.",
+      "areaServed": [
+        "Valiyaparamba",
+        "Nileswar",
+        "Kottappuram",
+        "Kasaragod"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Valiyaparamba",
+        "addressRegion": "Kerala",
+        "addressCountry": "India"
+      }
+    }
+    `}
+  </script>
+</Helmet>
     
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
