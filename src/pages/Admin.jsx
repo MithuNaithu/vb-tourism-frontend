@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export default function Admin() {
     const [bookings, setBookings] = useState([]);
@@ -48,8 +49,13 @@ export default function Admin() {
     };
 
     return (
+
         <div style={{ fontFamily: "'Segoe UI', Roboto, Helvetica, Arial, sans-serif" }}>
+            <Helmet>
+                <meta name="robots" content="noindex, nofollow" />
+            </Helmet>
             {/* Simple Navbar for Admin */}
+
             <nav className="navbar navbar-dark bg-dark">
                 <div className="container">
                     <Link className="navbar-brand fw-bold" to="/">← Back to Website</Link>
