@@ -10,7 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/admin-vp-private-2026-secure" element={<Admin />} />
+          <Route path="/admin-vp-naithik-2026-secure" element={<Admin />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
