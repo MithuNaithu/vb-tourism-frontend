@@ -7,43 +7,45 @@ export default function About() {
 
             {/* 🚀 PRO-LEVEL SEO FOR THE ABOUT PAGE */}
             <Helmet>
-                <title>About Valiyaparamba Island | History & Geography of Kerala's Hidden Gem</title>
+    <title>About Valiyaparamba Island | History & Geography of Kerala's Hidden Gem</title>
 
-                <meta
-                    name="description"
-                    content="Discover the untouched beauty of Valiyaparamba Island and the Kavvayi Kayal backwater system in northern Kerala. Learn about our local culture and authentic village life."
-                />
+    <link rel="canonical" href="https://www.valiyaparambatourism.com/about" />
 
-                <meta
-                    name="keywords"
-                    content="Valiyaparamba geography, Kavvayi Kayal system, Kasaragod tourism history, Tejaswini river, Kerala island life, authentic Kerala backwaters"
-                />
+    <meta
+        name="description"
+        content="Discover the untouched beauty of Valiyaparamba Island and the Kavvayi Kayal backwater system in northern Kerala. Learn about our local culture and authentic village life."
+    />
 
-                {/* Social Sharing specific to About Page */}
-                <meta property="og:title" content="Discover Valiyaparamba: Kerala's Best Kept Secret" />
-                <meta property="og:description" content="Learn the history and geography of the pristine Kavvayi Kayal backwaters." />
-                <meta property="og:image" content="/images/valiyaparamba-backwater-kerala.jpg" />
-                <meta property="og:type" content="article" />
+    <meta
+        name="keywords"
+        content="Valiyaparamba geography, Kavvayi Kayal system, Kasaragod tourism history, Tejaswini river, Kerala island life, authentic Kerala backwaters"
+    />
 
-                {/* Google Structured Data for an 'About' Page */}
-                <script type="application/ld+json">
-                    {`
-                    {
-                      "@context": "https://schema.org",
-                      "@type": "AboutPage",
-                      "mainEntity": {
-                        "@type": "Place",
-                        "name": "Valiyaparamba",
-                        "description": "A scenic backwater island in the Kasaragod district of Kerala, India, formed by the Kavvayi Kayal and Tejaswini River.",
-                        "containedInPlace": {
-                          "@type": "State",
-                          "name": "Kerala"
-                        }
-                      }
-                    }
-                    `}
-                </script>
-            </Helmet>
+    {/* Open Graph */}
+    <meta property="og:title" content="Discover Valiyaparamba: Kerala's Best Kept Secret" />
+    <meta property="og:description" content="Learn the history and geography of the pristine Kavvayi Kayal backwaters." />
+    <meta property="og:image" content="/images/valiyaparamba-backwater-kerala.jpg" />
+    <meta property="og:type" content="article" />
+
+    {/* Structured Data */}
+    <script type="application/ld+json">
+        {`
+        {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "mainEntity": {
+            "@type": "Place",
+            "name": "Valiyaparamba",
+            "description": "A scenic backwater island in the Kasaragod district of Kerala, India.",
+            "containedInPlace": {
+              "@type": "State",
+              "name": "Kerala"
+            }
+          }
+        }
+        `}
+    </script>
+</Helmet>
 
             {/* Navbar */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
