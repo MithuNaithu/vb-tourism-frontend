@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async'; // 👈 SEO Import added!
+import Sidebar from '../components/sidebar';
 
 export default function About() {
     return (
@@ -35,9 +36,11 @@ export default function About() {
         {
           "@context": "https://schema.org",
           "@type": "AboutPage",
+          "url": "https://www.valiyaparambatourism.com/about",
           "mainEntity": {
             "@type": "Place",
             "name": "Valiyaparamba",
+            "image": "https://www.valiyaparambatourism.com/images/valiyaparamba-backwater-kerala.jpg",
             "description": "A scenic backwater island in the Kasaragod district of Kerala, India.",
             "containedInPlace": {
               "@type": "State",
@@ -203,34 +206,7 @@ export default function About() {
 
                     {/* RIGHT COLUMN: Original Sidebar with Placeholders */}
                     <div className="col-lg-4">
-                        <div className="sidebar sticky-top" style={{ top: "20px" }}>
-                            <h5 className="mb-4">Travel Essentials</h5>
-
-                            <div className="card mb-3 border-0 shadow-sm hover-card">
-                                <div className="card-body">
-                                    <h6>🎒 Travel Backpack</h6>
-                                    <p className="small text-muted mb-2 mt-2">Best backpack for backwater trips.</p>
-                                    <span className="small fw-bold text-tropical">Shop on Amazon ↗</span>
-                                </div>
-                            </div>
-
-                            <div className="card mb-3 border-0 shadow-sm hover-card">
-                                <div className="card-body">
-                                    <h6>📱 Waterproof Pouch</h6>
-                                    <p className="small text-muted mb-2 mt-2">Keep your tech safe on the boat.</p>
-                                    <span className="small fw-bold text-tropical">Shop on Amazon ↗</span>
-                                </div>
-                            </div>
-
-                            <div className="card border-0 shadow-sm hover-card">
-                                <div className="card-body">
-                                    <h6>🚂 MakeMyTrip Booking</h6>
-                                    <p className="small text-muted mb-2 mt-2">Check trains to Payyanur.</p>
-                                    <span className="small fw-bold text-tropical">Check Fares ↗</span>
-                                </div>
-                            </div>
-
-                        </div>
+                        <Sidebar />
                     </div>
 
                 </div>
@@ -238,7 +214,7 @@ export default function About() {
 
             {/* Footer */}
             <footer className="bg-dark text-white text-center p-3 mt-4">
-                <p className="mb-0">© 2026 visitvaliyaparamba.com</p>
+                <p className="mb-0">© valiyaparambatourism.com</p>
             </footer>
         </div>
     );
