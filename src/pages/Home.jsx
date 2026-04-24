@@ -32,7 +32,7 @@ export default function Home() {
         setIsSubmitting(true);
 
         const friendNumber = "919497401671";
-        const message = `*🔔 NEW ENQUIRY FROM WEBSITE 🔔*\n*Source:* Visit Valiyaparamba Platform\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email || 'Not provided'}\n*Service:* ${formData.service}\n*Date:* ${formData.date}`;
+        const message = `*🔔 NEW ENQUIRY FROM WEBSITE 🔔*\n*Source:* valiyaparambatourism.com Platform\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email || 'Not provided'}\n*Service:* ${formData.service}\n*Date:* ${formData.date}`;
 
         const whatsappUrl = `https://wa.me/${friendNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
@@ -125,7 +125,7 @@ export default function Home() {
 
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
-                    <Link className="navbar-brand" to="/">Visit Valiyaparamba</Link>
+                    <Link className="navbar-brand" to="/">Welcome Valiyaparamba</Link>
                     <ul className="navbar-nav ms-auto flex-row gap-4">
                         <li className="nav-item"><Link className="nav-link active" to="/">Home</Link></li>
                         <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
@@ -136,9 +136,7 @@ export default function Home() {
             <section className="hero text-center text-white">
                 <div className="container">
                     <h1 className="fw-bold text-shadow-sm mb-3">
-                        <h1>
-                            Valiyaparamba Houseboat Booking, Resorts & Homestays in Kasaragod Kerala
-                        </h1>
+                        Valiyaparamba Houseboat Booking, Resorts & Homestays in Kasaragod Kerala
                     </h1>
                     <p className="lead mb-4 text-shadow-sm">
                         Peaceful houseboat cruises, beautiful beaches, and authentic Kerala village life.
@@ -213,7 +211,7 @@ export default function Home() {
             <footer className="bg-dark text-white py-4 mt-auto">
                 <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
                     <div className="text-center text-md-start mb-3 mb-md-0">
-                        <p className="mb-0 small">© 2026 visitvaliyaparamba.com</p>
+                        <p className="mb-0 small">© valiyaparambatourism.com</p>
                         <p className="mb-0 text-muted extra-small">Thrikaripur, Kerala, India</p>
                     </div>
                     <div className="badge bg-secondary px-3 py-2 shadow-sm fs-6">
