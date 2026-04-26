@@ -125,7 +125,7 @@ export default function Home() {
 
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
-                    <Link className="navbar-brand" to="/">Welcome Valiyaparamba</Link>
+                    <Link className="navbar-brand" to="/">Welcome to Valiyaparamba</Link>
                     <ul className="navbar-nav ms-auto flex-row gap-4">
                         <li className="nav-item"><Link className="nav-link active" to="/">Home</Link></li>
                         <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
@@ -149,7 +149,7 @@ export default function Home() {
 
 
             <section className="p-4 text-center">
-                <h2>Book Houseboat and Homestays in Valiyaparamba</h2>
+                <h2>Our Popular Valiyaparamba Experiences</h2>
                 <p>
                     Looking for houseboat booking in Valiyaparamba? We offer peaceful backwater cruises
                     and authentic homestay experiences in Kasaragod Kerala. Enjoy scenic views,
@@ -167,16 +167,20 @@ export default function Home() {
                     <p className="text-muted mb-5">Valiyaparamba is one of the most peaceful backwater destinations in northern Kerala.</p>
                     <div className="row mt-4">
                         <div className="col-md-3 mb-4 mb-md-0 hover-card">
-                            <h4 className="display-6">🌴</h4><h6 className="mt-3">Beautiful Backwaters</h6>
+                            <div className="display-6" aria-hidden="true">🌴</div>
+                            <h3 className="h6 mt-3">Beautiful Backwaters</h3>
                         </div>
                         <div className="col-md-3 mb-4 mb-md-0 hover-card">
-                            <h4 className="display-6">🚤</h4><h6 className="mt-3">Houseboat Cruises</h6>
+                            <div className="display-6" aria-hidden="true">🚤</div>
+                            <h3 className="h6 mt-3">Houseboat Cruises</h3>
                         </div>
                         <div className="col-md-3 mb-4 mb-md-0 hover-card">
-                            <h4 className="display-6">🏝</h4><h6 className="mt-3">Island Experience</h6>
+                            <div className="display-6" aria-hidden="true">🏝</div>
+                            <h3 className="h6 mt-3">Island Experience</h3>
                         </div>
                         <div className="col-md-3 hover-card">
-                            <h4 className="display-6">🌅</h4><h6 className="mt-3">Beautiful Sunsets</h6>
+                            <div className="display-6" aria-hidden="true">🌅</div>
+                            <h3 className="h6 mt-3">Beautiful Sunsets</h3>
                         </div>
                     </div>
                 </div>
