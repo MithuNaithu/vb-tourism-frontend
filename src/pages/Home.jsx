@@ -110,6 +110,11 @@ export default function Home() {
     {/* TWITTER */}
     <meta name="twitter:card" content="summary_large_image" />
     <meta
+
+
+
+
+
         name="twitter:title"
         content="Valiyaparamba Tourism | Houseboats, Homestays & Resorts"
     />
