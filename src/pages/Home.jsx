@@ -102,7 +102,7 @@ export default function Home() {
     />
     <meta
         property="og:image"
-        content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kerala.jpg"
+        content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kasaragod.jpg"
     />
     <meta property="og:url" content="https://www.valiyaparambatourism.com/" />
     <meta property="og:type" content="website" />
@@ -119,7 +119,7 @@ export default function Home() {
     />
     <meta
         name="twitter:image"
-        content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kerala.jpg"
+        content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kasaragod.jpg"
     />
 
     {/* STRUCTURED DATA - MAIN BUSINESS */}
