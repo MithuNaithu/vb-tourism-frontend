@@ -165,12 +165,22 @@ export default function About() {
 
                                 <li>
                                     <span className="text-dark fw-medium">Bekal Fort & Beach:</span>{' '}
-                                    Visit one of the largest forts in Kerala with stunning Arabian Sea views, located near Valiyaparamba in Kasaragod.
+                                    Explore one of Kerala’s most iconic coastal landmarks with breathtaking Arabian Sea views, located near Valiyaparamba in Kasaragod.
+                                </li>
+
+                                <li>
+                                    <span className="text-dark fw-medium">Kottappuram Houseboat Terminal:</span>{' '}
+                                    Visit the nearby Kottappuram terminal, a popular starting point for scenic houseboat cruises through the peaceful backwaters of northern Kerala.
+                                </li>
+
+                                <li>
+                                    <span className="text-dark fw-medium">Nileshwar (Neeleshwaram):</span>{' '}
+                                    Discover heritage sites, local markets, and premium backwater resorts in this culturally rich destination near Valiyaparamba.
                                 </li>
 
                                 <li>
                                     <span className="text-dark fw-medium">Mangrove Trails:</span>{' '}
-                                    Discover the rich biodiversity of Kerala’s mangrove forests through guided canoe rides and nature walks.
+                                    Experience Kerala’s rich biodiversity through canoe rides, birdwatching, and nature trails across serene mangrove ecosystems.
                                 </li>
 
                             </ul>
