@@ -69,59 +69,117 @@ export default function Home() {
     return (
         <div className="position-relative">
 
-            {/* SEO TAGS RESTORED */}
             <Helmet>
-                {/* PRIMARY TITLE (Very Important) */}
-                <title>
-                    Valiyaparamba Houseboat Booking | Nileswar & Kottappuram Houseboats, Resorts & Homestays Kerala
-                </title>
+    {/* PRIMARY SEO TITLE */}
+    <title>
+        Valiyaparamba Tourism | Houseboats, Homestays & Resorts in Kasaragod Kerala
+    </title>
 
-                {/* META DESCRIPTION */}
-                <meta
-                    name="description"
-                    content="Book houseboat cruises in Valiyaparamba, Nileswar, and Kottappuram backwaters, Kasaragod Kerala. Best price for houseboats, resorts, and homestays with direct local booking."
-                />
+    {/* META DESCRIPTION */}
+    <meta
+        name="description"
+        content="Discover Valiyaparamba tourism in Kasaragod Kerala with houseboat cruises, beachside resorts, homestays, and backwater experiences near Nileswar and Kottappuram."
+    />
 
-                {/* CANONICAL URL */}
-                <link rel="canonical" href="https://www.valiyaparambatourism.com/" />
+    {/* SEO SUPPORT */}
+    <meta
+        name="keywords"
+        content="Valiyaparamba tourism, Valiyaparamba houseboat, Valiyaparamba homestay, Valiyaparamba resorts, Kottappuram houseboat, Nileswar houseboat, Kasaragod tourism, Kerala backwaters"
+    />
+    <meta name="robots" content="index, follow" />
 
-                {/* OPEN GRAPH (Social Sharing) */}
-                <meta property="og:title" content="Valiyaparamba & Nileswar Houseboat Booking Kerala" />
-                <meta property="og:description" content="Book houseboats, resorts and homestays in Valiyaparamba, Nileswar and Kottappuram backwaters." />
-                <meta property="og:image" content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kerala.jpg" />
-                <meta property="og:url" content="https://www.valiyaparambatourism.com/" />
-                <meta property="og:type" content="website" />
+    {/* CANONICAL */}
+    <link rel="canonical" href="https://www.valiyaparambatourism.com/" />
 
-                {/* TWITTER (Optional but good) */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Valiyaparamba Houseboat Booking Kerala" />
-                <meta name="twitter:description" content="Book houseboats and homestays in Valiyaparamba backwaters." />
-                <meta name="twitter:image" content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kerala.jpg" />
+    {/* OPEN GRAPH */}
+    <meta
+        property="og:title"
+        content="Valiyaparamba Tourism | Houseboats, Homestays & Resorts Kerala"
+    />
+    <meta
+        property="og:description"
+        content="Explore Valiyaparamba backwaters with premium houseboats, peaceful homestays, and scenic Kerala resorts near Nileswar & Kottappuram."
+    />
+    <meta
+        property="og:image"
+        content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kerala.jpg"
+    />
+    <meta property="og:url" content="https://www.valiyaparambatourism.com/" />
+    <meta property="og:type" content="website" />
 
-                {/* STRUCTURED DATA (SEO BOOST) */}
-                <script type="application/ld+json">
-                    {`
-    {
-      "@context": "https://schema.org",
-      "@type": "TravelAgency",
-      "name": "Valiyaparamba Tourism",
-      "description": "Houseboat booking in Valiyaparamba, Nileswar, and Kottappuram backwaters, Kasaragod Kerala.",
-      "areaServed": [
-        "Valiyaparamba",
-        "Nileswar",
-        "Kottappuram",
-        "Kasaragod"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Valiyaparamba",
-        "addressRegion": "Kerala",
-        "addressCountry": "India"
-      }
-    }
-    `}
-                </script>
-            </Helmet>
+    {/* TWITTER */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+        name="twitter:title"
+        content="Valiyaparamba Tourism | Houseboats, Homestays & Resorts"
+    />
+    <meta
+        name="twitter:description"
+        content="Book Valiyaparamba houseboats, homestays, and resorts in Kerala’s peaceful backwaters."
+    />
+    <meta
+        name="twitter:image"
+        content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kerala.jpg"
+    />
+
+    {/* STRUCTURED DATA - MAIN BUSINESS */}
+    <script type="application/ld+json">
+        {`
+        {
+          "@context": "https://schema.org",
+          "@type": "TravelAgency",
+          "name": "Valiyaparamba Tourism",
+          "url": "https://www.valiyaparambatourism.com",
+          "description": "Valiyaparamba Tourism offers houseboats, resorts, homestays and backwater tourism experiences in Kasaragod Kerala.",
+          "areaServed": [
+            "Valiyaparamba",
+            "Nileswar",
+            "Kottappuram",
+            "Kasaragod"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Valiyaparamba",
+            "addressRegion": "Kerala",
+            "addressCountry": "India"
+          },
+          "touristType": [
+            "Family Travelers",
+            "Couples",
+            "Backwater Tourists"
+          ]
+        }
+        `}
+    </script>
+
+    {/* FAQ SCHEMA */}
+    <script type="application/ld+json">
+        {`
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What are the best tourism experiences in Valiyaparamba?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Valiyaparamba offers houseboat cruises, peaceful backwaters, beach resorts, local homestays, and island tourism experiences in Kasaragod Kerala."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I book houseboats, resorts, and homestays in Valiyaparamba?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Valiyaparamba Tourism provides direct local booking for houseboats, resorts, and homestays."
+              }
+            }
+          ]
+        }
+        `}
+    </script>
+</Helmet>
 
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
@@ -192,7 +250,7 @@ export default function Home() {
                     <div className="row g-4 justify-content-center">
                         <div className="col-md-5">
                             <div className="card h-100 shadow-sm border-0 hover-card img-zoom-wrapper">
-                                <img src="/images/valiyaparamba-houseboat-kerala.jpg" className="card-img-top img-cinematic experience-img" alt="Valiyaparamba houseboat cruise in Kasaragod Kerala backwaters" loading="lazy" />
+                                <img src="/images/valiyaparamba-houseboat-kasaragod.jpg" className="card-img-top img-cinematic experience-img" alt="Best Valiyaparamba houseboat cruise in Kasaragod Kerala backwaters" loading="lazy" />
                                 <div className="card-body p-4">
                                     <h5 className="mb-3 text-tropical">Valiyaparamba Houseboat Booking</h5>
                                     <p className="text-muted mb-0">Experience the tranquil Kerala backwaters in our premium traditional houseboats.</p>
@@ -201,7 +259,7 @@ export default function Home() {
                         </div>
                         <div className="col-md-5">
                             <div className="card h-100 shadow-sm border-0 hover-card img-zoom-wrapper">
-                                <img src="/images/valiyaparamba-homestay-kerala.jpg" className="card-img-top img-cinematic experience-img" alt="Best homestay in Valiyaparamba backwaters Kerala village stay experience" loading="lazy" />
+                                <img src="/images/valiyaparamba-homestay-kasaragod.jpg" className="card-img-top img-cinematic experience-img" alt="Best homestay in Valiyaparamba backwaters Kerala village stay experience" loading="lazy" />
                                 <div className="card-body p-4">
                                     <h5 className="mb-3 text-tropical">Best Homestays in Valiyaparamba Kerala</h5>
                                     <p className="text-muted mb-0">Stay with local families and enjoy legendary coastal Kerala hospitality and seafood.</p>
