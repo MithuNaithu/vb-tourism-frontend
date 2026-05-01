@@ -250,7 +250,7 @@ export default function Home() {
                     <div className="row g-4 justify-content-center">
                         <div className="col-md-5">
                             <div className="card h-100 shadow-sm border-0 hover-card img-zoom-wrapper">
-                                <img src="/images/valiyaparamba-houseboat-kerala.jpg" className="card-img-top img-cinematic experience-img" alt="Valiyaparamba houseboat cruise in Kasaragod Kerala backwaters" loading="lazy" />
+                                <img src="/images/valiyaparamba-houseboat-kasaragod.jpg" className="card-img-top img-cinematic experience-img" alt="Best Valiyaparamba houseboat cruise in Kasaragod Kerala backwaters" loading="lazy" />
                                 <div className="card-body p-4">
                                     <h5 className="mb-3 text-tropical">Valiyaparamba Houseboat Booking</h5>
                                     <p className="text-muted mb-0">Experience the tranquil Kerala backwaters in our premium traditional houseboats.</p>
@@ -259,7 +259,7 @@ export default function Home() {
                         </div>
                         <div className="col-md-5">
                             <div className="card h-100 shadow-sm border-0 hover-card img-zoom-wrapper">
-                                <img src="/images/valiyaparamba-homestay-kerala.jpg" className="card-img-top img-cinematic experience-img" alt="Best homestay in Valiyaparamba backwaters Kerala village stay experience" loading="lazy" />
+                                <img src="/images/valiyaparamba-homestay-kasaragod.jpg" className="card-img-top img-cinematic experience-img" alt="Best homestay in Valiyaparamba backwaters Kerala village stay experience" loading="lazy" />
                                 <div className="card-body p-4">
                                     <h5 className="mb-3 text-tropical">Best Homestays in Valiyaparamba Kerala</h5>
                                     <p className="text-muted mb-0">Stay with local families and enjoy legendary coastal Kerala hospitality and seafood.</p>
