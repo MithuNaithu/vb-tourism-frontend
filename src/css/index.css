@@ -7,7 +7,7 @@ body {
 /* --- Hero Section (Fully cleaned up!) --- */
 .hero {
     /* Gradient and image path moved here */
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/valiyaparamba-hero-kasaragod.jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("/images/valiyaparamba-hero-kasaragod.jpg") center/cover no-repeat;
     min-height: 40vh;
     padding: 80px 15px;
     display: flex;
