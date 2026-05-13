@@ -1,4 +1,5 @@
-import { Link, useState } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async'; // 👈 SEO Import added!
 import Sidebar from '../components/sidebar';
 
@@ -56,7 +57,7 @@ export default function About() {
             {/* Navbar */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
                 <div className="container-fluid px-3">
-                    <Link className="navbar-brand" to="/">Welcome Valiyaparamba</Link>
+                    <Link className="navbar-brand" to="/">Welcome To Valiyaparamba</Link>
                     <button 
                         className="navbar-toggler" 
                         type="button" 
