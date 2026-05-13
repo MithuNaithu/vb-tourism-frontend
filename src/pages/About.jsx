@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useState } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async'; // 👈 SEO Import added!
 import Sidebar from '../components/sidebar';
 
 export default function About() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     return (
         <div style={{ fontFamily: "'Segoe UI', Roboto, Helvetica, Arial, sans-serif" }}>
 
@@ -53,25 +54,35 @@ export default function About() {
             </Helmet>
 
             {/* Navbar */}
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div className="container">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+                <div className="container-fluid px-3">
                     <Link className="navbar-brand" to="/">Welcome Valiyaparamba</Link>
-                    <ul className="navbar-nav ms-auto flex-row gap-4">
-                        <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
-                        <li className="nav-item"><Link className="nav-link active" to="/about">About</Link></li>
-                    </ul>
+                    <button 
+                        className="navbar-toggler" 
+                        type="button" 
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className={`collapse navbar-collapse ${mobileMenuOpen ? 'show' : ''}`}>
+                        <ul className="navbar-nav ms-auto flex-row gap-3 gap-lg-4">
+                            <li className="nav-item"><Link className="nav-link" to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link></li>
+                            <li className="nav-item"><Link className="nav-link active" to="/about" onClick={() => setMobileMenuOpen(false)}>About</Link></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
 
             {/* Main Content */}
-            <div className="container mt-4 mb-5">
-                <div className="row">
+            <div className="container-fluid px-3 px-md-4 mt-4 mb-5">
+                <div className="row g-3 g-md-4">
 
                     {/* LEFT COLUMN: Premium Copywriting + Core Geographical Facts */}
-                    <div className="col-lg-8">
+                    <div className="col-12 col-lg-8">
 
                         {/* Section 1: Introduction */}
-                        <section className="text-center p-5 bg-light mb-4 rounded">
+                        <section className="text-center p-3 p-md-5 bg-light mb-4 rounded">
                             <h1 className="mb-2">Valiyaparamba Backwater</h1>
                             <h2 className="text-tropical mb-4">Kerala’s Hidden Aquatic Gem</h2>
                             <p className="text-muted mb-0">
@@ -80,7 +91,7 @@ export default function About() {
                         </section>
 
                         {/* Section 2: Tapestry */}
-                        <section className="p-5 mb-4 text-start">
+                        <section className="p-3 p-md-5 mb-4 text-start">
                             <h3 className="mb-3 text-tropical">A Tapestry of Water and Land</h3>
                             <p className="text-muted mb-3">
                                 <span className="text-dark fw-medium">Valiyaparamba</span> is a scenic island in northern Kerala, gracefully separated from the mainland by a sprawling network of backwaters primarily fed by the <span className="text-dark fw-medium">Tejeswini (Kariangode) River</span>. This river meanders through the landscape, forming a tranquil maze of canals, lagoons, and estuaries that stretch lazily across the region, glistening under the golden tropical sun.
@@ -91,7 +102,7 @@ export default function About() {
                         </section>
 
                         {/* Section 3: RESTORED CORE CONTENT - Kavvayi Kayal System */}
-                        <section className="p-5 bg-light mb-4 rounded text-start">
+                        <section className="p-3 p-md-5 bg-light mb-4 rounded text-start">
                             <h3 className="mb-3">The Backwaters of Valiyaparamba</h3>
                             <h4 className="text-tropical mb-4">Kavvayi Kayal System</h4>
                             <p className="text-muted mb-3">
@@ -106,9 +117,9 @@ export default function About() {
                         </section>
 
                         {/* Section 4: Natural Beauty & Life */}
-                        <section className="p-5 mb-4 text-start">
-                            <div className="row">
-                                <div className="col-md-6 mb-4 mb-md-0">
+                        <section className="p-3 p-md-5 mb-4 text-start">
+                            <div className="row g-3">
+                                <div className="col-12 col-md-6 mb-3 mb-md-0">
                                     <h4 className="text-tropical mb-3">A Canvas of Natural Beauty</h4>
                                     <p className="text-muted mb-3 small">
                                         Unlike the commercialized backwaters of southern Kerala, expect raw, undisturbed beauty:
@@ -120,7 +131,7 @@ export default function About() {
                                         <li><span className="text-dark fw-medium">Sunsets</span> painting the sky in violet hues.</li>
                                     </ul>
                                 </div>
-                                <div className="col-md-6 border-start border-2 px-md-4">
+                                <div className="col-12 col-md-6 border-start border-2 px-md-4 ps-3">
                                     <h4 className="text-tropical mb-3">Life Along the Water</h4>
                                     <p className="text-muted mb-3 small">
                                         Valiyaparamba is a living, breathing cultural landscape. Fishing is not just a livelihood but a way of life.
@@ -133,7 +144,7 @@ export default function About() {
                         </section>
 
                         {/* Section 5: Activities & Nearby */}
-                        <section className="p-5 bg-light mb-4 rounded text-start">
+                        <section className="p-3 p-md-5 bg-light mb-4 rounded text-start">
                             <h3 className="mb-4">Explore the Untouched</h3>
 
                             <h5 className="text-tropical mb-3">Things to Do</h5>
@@ -187,7 +198,7 @@ export default function About() {
                         </section>
 
                         {/* Section 6: Conclusion */}
-                        <section className="p-5 mb-5 rounded text-start border-start border-4 border-info">
+                        <section className="p-3 p-md-5 mb-5 rounded text-start border-start border-4 border-info">
                             <h4 className="text-tropical mb-3">A Place to Disconnect</h4>
                             <p className="text-muted mb-3">
                                 The best time to visit is from <span className="text-dark fw-medium">September to May</span>. The monsoon season (June to August) transforms the landscape into a lush green paradise, but heavy rains can make travel challenging.
@@ -215,7 +226,7 @@ export default function About() {
                     </div>
 
                     {/* RIGHT COLUMN: Original Sidebar with Placeholders */}
-                    <div className="col-lg-4">
+                    <div className="col-12 col-lg-4">
                         <Sidebar />
                     </div>
 
@@ -223,8 +234,15 @@ export default function About() {
             </div>
 
             {/* Footer */}
-            <footer className="bg-dark text-white text-center p-3 mt-4">
-                <p className="mb-0">© valiyaparambatourism.com</p>
+            <footer className="bg-dark text-white py-3 mt-4">
+                <div className="container-fluid px-3">
+                    <div className="row g-3">
+                        <div className="col-12 col-md-auto text-center text-md-start">
+                            <p className="mb-0 small">© valiyaparambatourism.com</p>
+                            <p className="mb-0 text-muted extra-small">Thrikaripur, Kerala, India</p>
+                        </div>
+                    </div>
+                </div>
             </footer>
         </div>
     );
