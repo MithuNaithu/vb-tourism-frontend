@@ -58,9 +58,9 @@ export default function About() {
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
                 <div className="container-fluid px-3">
                     <Link className="navbar-brand" to="/">Welcome To Valiyaparamba</Link>
-                    <button 
-                        className="navbar-toggler" 
-                        type="button" 
+                    <button
+                        className="navbar-toggler"
+                        type="button"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         aria-label="Toggle navigation"
                     >
@@ -176,8 +176,13 @@ export default function About() {
                             <ul className="text-muted mb-0 lh-lg">
 
                                 <li>
-                                    <span className="text-dark fw-medium">Bekal Fort & Beach:</span>{' '}
-                                    Explore one of Kerala’s most iconic coastal landmarks with breathtaking Arabian Sea views, located near Valiyaparamba in Kasaragod.
+                                    <span className="text-dark fw-medium">Madakkara Fishing Harbour:</span>{' '}
+                                    Experience the vibrant coastal fishing culture of northern Kerala, where traditional fishing boats and fresh seafood markets create an authentic local atmosphere.
+                                </li>
+
+                                <li>
+                                    <span className="text-dark fw-medium">V-Land Water Park, Vellap:</span>{' '}
+                                    Enjoy family-friendly water rides and recreational activities at this popular entertainment destination near Valiyaparamba.
                                 </li>
 
                                 <li>

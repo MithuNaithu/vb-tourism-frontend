@@ -12,7 +12,7 @@ export default function Sidebar() {
                     <p className="small text-muted mb-2 mt-2">Best backpack for backwater trips.</p>
                     {/* Fixed Affiliate Link */}
                     <a 
-                        href="YOUR_AMAZON_LINK_HERE" 
+                        href="https://amzn.to/4dBneIN" 
                         target="_blank" 
                         rel="sponsored noopener noreferrer" 
                         className="small fw-bold text-tropical text-decoration-none"
@@ -28,7 +28,7 @@ export default function Sidebar() {
                     <p className="small text-muted mb-2 mt-2">Keep your tech safe on the boat.</p>
                     {/* Fixed Affiliate Link */}
                     <a 
-                        href="YOUR_AMAZON_LINK_HERE" 
+                        href="https://amzn.to/4dix6Wy" 
                         target="_blank" 
                         rel="sponsored noopener noreferrer" 
                         className="small fw-bold text-tropical text-decoration-none"
