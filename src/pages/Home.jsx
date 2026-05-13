@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet-async';
 export default function Home() {
     const [showModal, setShowModal] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [visitors, setVisitors] = useState("...");
 
     const [formData, setFormData] = useState({
@@ -192,15 +193,50 @@ export default function Home() {
                 </script>
             </Helmet>
 
-            <nav className="navbar navbar-expand-lg navbar-dark custom-navbar">
-                <div className="container">
-                    <Link className="navbar-brand" to="/">Welcome to Valiyaparamba</Link>
-                    <ul className="navbar-nav ms-auto flex-row gap-4">
-                        <li className="nav-item"><Link className="nav-link active" to="/">Home</Link></li>
-                        <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
-                    </ul>
-                </div>
-            </nav>
+            <nav className="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
+    <div className="container">
+
+        <Link className="navbar-brand" to="/">
+            Welcome to Valiyaparamba
+        </Link>
+
+        <button
+            className="navbar-toggler"
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation"
+        >
+            <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className={`collapse navbar-collapse ${mobileMenuOpen ? 'show' : ''}`}>
+            <ul className="navbar-nav ms-auto gap-3 gap-lg-4">
+
+                <li className="nav-item">
+                    <Link
+                        className="nav-link active"
+                        to="/"
+                        onClick={() => setMobileMenuOpen(false)}
+                    >
+                        Home
+                    </Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link
+                        className="nav-link"
+                        to="/about"
+                        onClick={() => setMobileMenuOpen(false)}
+                    >
+                        About
+                    </Link>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
 
             <section className="hero text-center text-white">
                 <div className="container">
@@ -233,24 +269,24 @@ export default function Home() {
                 </p>
             </section>
 
-            <section className="p-5 text-center bg-white">
-                <div className="container">
+            <section className="p-4 p-md-5 text-center bg-white">
+                <div className="container px-3">
                     <h2 className="mb-4">Why Visit Valiyaparamba</h2>
                     <p className="text-muted mb-5">Valiyaparamba is one of the most peaceful backwater destinations in northern Kerala.</p>
-                    <div className="row mt-4">
-                        <div className="col-md-3 mb-4 mb-md-0 hover-card">
+                    <div className="row g-3 g-md-4 mt-4">
+                        <div className="col-6 col-md-3 mb-3 mb-md-0 hover-card">
                             <div className="display-6" aria-hidden="true">🌴</div>
                             <h3 className="h6 mt-3">Beautiful Backwaters</h3>
                         </div>
-                        <div className="col-md-3 mb-4 mb-md-0 hover-card">
+                        <div className="col-6 col-md-3 mb-3 mb-md-0 hover-card">
                             <div className="display-6" aria-hidden="true">🚤</div>
                             <h3 className="h6 mt-3">Houseboat Cruises</h3>
                         </div>
-                        <div className="col-md-3 mb-4 mb-md-0 hover-card">
+                        <div className="col-6 col-md-3 mb-3 mb-md-0 hover-card">
                             <div className="display-6" aria-hidden="true">🏝</div>
                             <h3 className="h6 mt-3">Island Experience</h3>
                         </div>
-                        <div className="col-md-3 hover-card">
+                        <div className="col-6 col-md-3 hover-card">
                             <div className="display-6" aria-hidden="true">🌅</div>
                             <h3 className="h6 mt-3">Beautiful Sunsets</h3>
                         </div>
@@ -258,11 +294,11 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className="p-5 bg-light pb-5">
-                <div className="container text-center mb-4">
+            <section className="p-4 p-md-5 bg-light pb-5">
+                <div className="container text-center mb-4 px-3">
                     <h2 className="mb-5">Houseboat and Homestays in Valiyaparamba</h2>
-                    <div className="row g-4 justify-content-center">
-                        <div className="col-md-5">
+                    <div className="row g-3 g-md-4 justify-content-center">
+                        <div className="col-12 col-md-5">
                             <div className="card h-100 shadow-sm border-0 hover-card img-zoom-wrapper">
                                 <img src="/images/valiyaparamba-houseboat-kasaragod.jpg" className="card-img-top img-cinematic experience-img" alt="Best Valiyaparamba houseboat cruise in Kasaragod Kerala backwaters" loading="lazy" />
                                 <div className="card-body p-4">
@@ -271,7 +307,7 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-5">
+                        <div className="col-12 col-md-5">
                             <div className="card h-100 shadow-sm border-0 hover-card img-zoom-wrapper">
                                 <img src="/images/valiyaparamba-homestay-kasaragod.jpg" className="card-img-top img-cinematic experience-img" alt="Best homestay in Valiyaparamba backwaters Kerala village stay experience" loading="lazy" />
                                 <div className="card-body p-4">
@@ -285,13 +321,17 @@ export default function Home() {
             </section>
 
             <footer className="bg-dark text-white py-4 mt-auto">
-                <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <div className="text-center text-md-start mb-3 mb-md-0">
-                        <p className="mb-0 small">© valiyaparambatourism.com</p>
-                        <p className="mb-0 text-muted extra-small">Thrikaripur, Kerala, India</p>
-                    </div>
-                    <div className="badge bg-secondary px-3 py-2 shadow-sm fs-6">
-                        Visitors: {visitors}
+                <div className="container-fluid px-3">
+                    <div className="row g-3">
+                        <div className="col-12 col-md-auto text-center text-md-start">
+                            <p className="mb-0 small">© valiyaparambatourism.com</p>
+                            <p className="mb-0 text-muted extra-small">Thrikaripur, Kerala, India</p>
+                        </div>
+                        <div className="col-12 col-md-auto ms-md-auto text-center">
+                            <div className="badge bg-secondary px-3 py-2 shadow-sm fs-6">
+                                Visitors: {visitors}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </footer>
@@ -300,37 +340,37 @@ export default function Home() {
                 <>
                     <div className="modal-backdrop fade show" onClick={() => setShowModal(false)}></div>
                     <div className="modal fade show d-block" tabIndex="-1" role="dialog">
-                        <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                             <div className="modal-content shadow-lg border-0">
                                 <div className="modal-header bg-dark text-white">
                                     <h5 className="modal-title">Book Your Experience</h5>
                                     <button type="button" className="btn-close btn-close-white" onClick={() => setShowModal(false)}></button>
                                 </div>
-                                <div className="modal-body p-4 text-start">
+                                <div className="modal-body p-3 p-md-4 text-start">
                                     <form onSubmit={handleWhatsAppSubmit}>
                                         <div className="mb-3">
                                             <label className="form-label text-muted small mb-1">Full Name</label>
-                                            <input type="text" name="name" className="form-control" placeholder="Enter your name" required value={formData.name} onChange={handleChange} />
+                                            <input type="text" name="name" className="form-control form-control-lg" placeholder="Enter your name" required value={formData.name} onChange={handleChange} style={{ fontSize: '1rem' }} />
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label text-muted small mb-1">WhatsApp Number</label>
-                                            <input type="tel" name="phone" className="form-control" placeholder="+91" required value={formData.phone} onChange={handleChange} />
+                                            <input type="tel" name="phone" className="form-control form-control-lg" placeholder="+91" required value={formData.phone} onChange={handleChange} style={{ fontSize: '1rem' }} />
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label text-muted small mb-1">Email Address (Optional)</label>
-                                            <input type="email" name="email" className="form-control" placeholder="name@example.com" value={formData.email} onChange={handleChange} />
+                                            <input type="email" name="email" className="form-control form-control-lg" placeholder="name@example.com" value={formData.email} onChange={handleChange} style={{ fontSize: '1rem' }} />
                                         </div>
-                                        <div className="row mb-4">
-                                            <div className="col-6">
+                                        <div className="row g-2 mb-4">
+                                            <div className="col-12 col-sm-6">
                                                 <label className="form-label text-muted small mb-1">Select Service</label>
-                                                <select name="service" className="form-select" required value={formData.service} onChange={handleChange}>
+                                                <select name="service" className="form-select form-select-lg" required value={formData.service} onChange={handleChange} style={{ fontSize: '1rem' }}>
                                                     <option value="Houseboat Cruise">Houseboat Cruise</option>
                                                     <option value="Homestay Experience">Homestay Experience</option>
                                                 </select>
                                             </div>
-                                            <div className="col-6">
+                                            <div className="col-12 col-sm-6">
                                                 <label className="form-label text-muted small mb-1">Date</label>
-                                                <input type="date" name="date" className="form-control" required value={formData.date} onChange={handleChange} />
+                                                <input type="date" name="date" className="form-control form-control-lg" required value={formData.date} onChange={handleChange} style={{ fontSize: '1rem' }} />
                                             </div>
                                         </div>
                                         <button type="submit" className="btn btn-contact w-100 fs-6 shadow-sm" disabled={isSubmitting}>
