@@ -58,7 +58,13 @@ export default function Home() {
             date: formData.date
         };
 
-        emailjs.send('service_31x27d7', 'template_imcqz89', templateParams, 'Lq6-PF8FnyNA_z__J')
+        // Secure EmailJS Submission
+        emailjs.send(
+            import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+            templateParams,
+            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        )
             .then(() => console.log('✅ EmailJS Sent Successfully!'))
             .catch((error) => console.error('❌ EmailJS Failed:', error));
 
@@ -71,66 +77,66 @@ export default function Home() {
         <div className="position-relative">
 
             <Helmet>
-    {/* PRIMARY SEO TITLE */}
-    <title>
-        Valiyaparamba Tourism | Houseboats, Homestays & Resorts in Kasaragod Kerala
-    </title>
+                {/* PRIMARY SEO TITLE */}
+                <title>
+                    Valiyaparamba Tourism | Houseboats, Homestays & Resorts in Kasaragod Kerala
+                </title>
 
-    {/* META DESCRIPTION */}
-    <meta
-        name="description"
-        content="Discover Valiyaparamba tourism in Kasaragod Kerala with houseboat cruises, beachside resorts, homestays, and backwater experiences near Nileswar and Kottappuram."
-    />
+                {/* META DESCRIPTION */}
+                <meta
+                    name="description"
+                    content="Discover Valiyaparamba tourism in Kasaragod Kerala with houseboat cruises, beachside resorts, homestays, and backwater experiences near Nileswar and Kottappuram."
+                />
 
-    {/* SEO SUPPORT */}
-    <meta
-        name="keywords"
-        content="Valiyaparamba tourism, Valiyaparamba houseboat, Valiyaparamba homestay, Valiyaparamba resorts, Kottappuram houseboat, Nileswar houseboat, Kasaragod tourism, Kerala backwaters"
-    />
-    <meta name="robots" content="index, follow" />
+                {/* SEO SUPPORT */}
+                <meta
+                    name="keywords"
+                    content="Valiyaparamba tourism, Valiyaparamba houseboat, Valiyaparamba homestay, Valiyaparamba resorts, Kottappuram houseboat, Nileswar houseboat, Kasaragod tourism, Kerala backwaters"
+                />
+                <meta name="robots" content="index, follow" />
 
-    {/* CANONICAL */}
-    <link rel="canonical" href="https://www.valiyaparambatourism.com/" />
+                {/* CANONICAL */}
+                <link rel="canonical" href="https://www.valiyaparambatourism.com/" />
 
-    {/* OPEN GRAPH */}
-    <meta
-        property="og:title"
-        content="Valiyaparamba Tourism | Houseboats, Homestays & Resorts Kerala"
-    />
-    <meta
-        property="og:description"
-        content="Explore Valiyaparamba backwaters with premium houseboats, peaceful homestays, and scenic Kerala resorts near Nileswar & Kottappuram."
-    />
-    <meta
-        property="og:image"
-        content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kasaragod.jpg"
-    />
-    <meta property="og:url" content="https://www.valiyaparambatourism.com/" />
-    <meta property="og:type" content="website" />
+                {/* OPEN GRAPH */}
+                <meta
+                    property="og:title"
+                    content="Valiyaparamba Tourism | Houseboats, Homestays & Resorts Kerala"
+                />
+                <meta
+                    property="og:description"
+                    content="Explore Valiyaparamba backwaters with premium houseboats, peaceful homestays, and scenic Kerala resorts near Nileswar & Kottappuram."
+                />
+                <meta
+                    property="og:image"
+                    content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kasaragod.jpg"
+                />
+                <meta property="og:url" content="https://www.valiyaparambatourism.com/" />
+                <meta property="og:type" content="website" />
 
-    {/* TWITTER */}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-
-
+                {/* TWITTER */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
 
 
 
-        name="twitter:title"
-        content="Valiyaparamba Tourism | Houseboats, Homestays & Resorts"
-    />
-    <meta
-        name="twitter:description"
-        content="Book Valiyaparamba houseboats, homestays, and resorts in Kerala’s peaceful backwaters."
-    />
-    <meta
-        name="twitter:image"
-        content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kasaragod.jpg"
-    />
 
-    {/* STRUCTURED DATA - MAIN BUSINESS */}
-    <script type="application/ld+json">
-        {`
+
+                    name="twitter:title"
+                    content="Valiyaparamba Tourism | Houseboats, Homestays & Resorts"
+                />
+                <meta
+                    name="twitter:description"
+                    content="Book Valiyaparamba houseboats, homestays, and resorts in Kerala’s peaceful backwaters."
+                />
+                <meta
+                    name="twitter:image"
+                    content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kasaragod.jpg"
+                />
+
+                {/* STRUCTURED DATA - MAIN BUSINESS */}
+                <script type="application/ld+json">
+                    {`
         {
           "@context": "https://schema.org",
           "@type": "TravelAgency",
@@ -156,11 +162,11 @@ export default function Home() {
           ]
         }
         `}
-    </script>
+                </script>
 
-    {/* FAQ SCHEMA */}
-    <script type="application/ld+json">
-        {`
+                {/* FAQ SCHEMA */}
+                <script type="application/ld+json">
+                    {`
         {
           "@context": "https://schema.org",
           "@type": "FAQPage",
@@ -184,28 +190,53 @@ export default function Home() {
           ]
         }
         `}
-    </script>
-</Helmet>
+                </script>
+            </Helmet>
 
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-                <div className="container-fluid px-3">
-                    <Link className="navbar-brand" to="/">Welcome to Valiyaparamba</Link>
-                    <button 
-                        className="navbar-toggler" 
-                        type="button" 
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        aria-label="Toggle navigation"
+            <nav className="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
+    <div className="container">
+
+        <Link className="navbar-brand" to="/">
+            Welcome to Valiyaparamba
+        </Link>
+
+        <button
+            className="navbar-toggler"
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation"
+        >
+            <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className={`collapse navbar-collapse ${mobileMenuOpen ? 'show' : ''}`}>
+            <ul className="navbar-nav ms-auto gap-3 gap-lg-4">
+
+                <li className="nav-item">
+                    <Link
+                        className="nav-link active"
+                        to="/"
+                        onClick={() => setMobileMenuOpen(false)}
                     >
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className={`collapse navbar-collapse ${mobileMenuOpen ? 'show' : ''}`}>
-                        <ul className="navbar-nav ms-auto flex-row gap-3 gap-lg-4">
-                            <li className="nav-item"><Link className="nav-link active" to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/about" onClick={() => setMobileMenuOpen(false)}>About</Link></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+                        Home
+                    </Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link
+                        className="nav-link"
+                        to="/about"
+                        onClick={() => setMobileMenuOpen(false)}
+                    >
+                        About
+                    </Link>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
 
             <section className="hero text-center text-white">
                 <div className="container">
@@ -215,8 +246,11 @@ export default function Home() {
                     <p className="lead mb-4 text-shadow-sm">
                         Peaceful houseboat cruises, beautiful beaches, and authentic Kerala village life.
                     </p>
-                    <button onClick={() => setShowModal(true)} className="btn btn-warning btn-lg px-4 fw-bold shadow hover-card">
-                        Send an Enquiry
+                    <button
+                        onClick={() => setShowModal(true)}
+                        className="btn btn-contact btn-lg px-4 fw-bold shadow"
+                    >
+                        Contact Us
                     </button>
                 </div>
             </section>
@@ -339,7 +373,7 @@ export default function Home() {
                                                 <input type="date" name="date" className="form-control form-control-lg" required value={formData.date} onChange={handleChange} style={{ fontSize: '1rem' }} />
                                             </div>
                                         </div>
-                                        <button type="submit" className="btn btn-warning w-100 fs-6 shadow-sm hover-card" disabled={isSubmitting} style={{ minHeight: '44px' }}>
+                                        <button type="submit" className="btn btn-contact w-100 fs-6 shadow-sm" disabled={isSubmitting}>
                                             {isSubmitting ? "Processing..." : "Send Enquiry via WhatsApp"}
                                         </button>
                                     </form>
