@@ -33,7 +33,7 @@ export default function Home() {
         setIsSubmitting(true);
 
         const friendNumber = "919497401671";
-        const message = `*🔔 NEW ENQUIRY FROM WEBSITE 🔔*\n*Source:* valiyaparambatourism.com Platform\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email || 'Not provided'}\n*Service:* ${formData.service}\n*Date:* ${formData.date}`;
+        const message = `*🔔 NEW ENQUIRY FROM WEBSITE 🔔*\n*Source:* www.valiyaparambatourism.com website\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email || 'Not provided'}\n*Service:* ${formData.service}\n*Date:* ${formData.date}`;
 
         const whatsappUrl = `https://wa.me/${friendNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
@@ -374,7 +374,7 @@ export default function Home() {
                                             </div>
                                         </div>
                                         <button type="submit" className="btn btn-contact w-100 fs-6 shadow-sm" disabled={isSubmitting}>
-                                            {isSubmitting ? "Processing..." : "Send Enquiry via WhatsApp"}
+                                            {isSubmitting ? "Processing..." : "Contact via WhatsApp"}
                                         </button>
                                     </form>
                                 </div>
