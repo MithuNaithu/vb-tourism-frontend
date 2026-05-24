@@ -29,7 +29,7 @@ export default function About() {
                 {/* Open Graph */}
                 <meta property="og:title" content="Discover Valiyaparamba: Kerala's Best Kept Secret" />
                 <meta property="og:description" content="Learn the history and geography of the pristine Kavvayi Kayal backwaters." />
-                <meta property="og:image" content="/images/valiyaparamba-backwater-kasaragod.jpg" />
+                <meta property="og:image" content="/images/valiyaparamba-backwater-kasaragod.webp" />
                 <meta property="og:type" content="article" />
 
                 {/* Structured Data */}
@@ -42,7 +42,7 @@ export default function About() {
           "mainEntity": {
             "@type": "Place",
             "name": "Valiyaparamba",
-            "image": "https://www.valiyaparambatourism.com/images/valiyaparamba-backwater-kasaragod.jpg",
+            "image": "https://www.valiyaparambatourism.com/images/valiyaparamba-backwater-kasaragod.webp",
             "description": "A scenic backwater island in the Kasaragod district of Kerala, India.",
             "containedInPlace": {
               "@type": "State",
@@ -218,7 +218,7 @@ export default function About() {
                         <section className="mt-5 mb-2 text-center">
                             <div className="img-zoom-wrapper shadow-sm">
                                 <img
-                                    src="/images/valiyaparamba-backwater-kasaragod.jpg"
+                                    src="/images/valiyaparamba-backwater-kasaragod.webp"
                                     className="img-cinematic"
                                     alt="Beautiful View of Valiyaparamba Backwaters"
                                     loading="lazy"
