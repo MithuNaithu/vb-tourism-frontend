@@ -109,7 +109,7 @@ export default function Home() {
                 />
                 <meta
                     property="og:image"
-                    content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kasaragod.jpg"
+                    content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kasaragod.webp"
                 />
                 <meta property="og:url" content="https://www.valiyaparambatourism.com/" />
                 <meta property="og:type" content="website" />
@@ -131,7 +131,7 @@ export default function Home() {
                 />
                 <meta
                     name="twitter:image"
-                    content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kasaragod.jpg"
+                    content="https://www.valiyaparambatourism.com/images/valiyaparamba-hero-kasaragod.webp"
                 />
 
                 {/* STRUCTURED DATA - MAIN BUSINESS */}
@@ -300,7 +300,7 @@ export default function Home() {
                     <div className="row g-3 g-md-4 justify-content-center">
                         <div className="col-12 col-md-5">
                             <div className="card h-100 shadow-sm border-0 hover-card img-zoom-wrapper">
-                                <img src="/images/valiyaparamba-houseboat-kasaragod.jpg" className="card-img-top img-cinematic experience-img" alt="Best Valiyaparamba houseboat cruise in Kasaragod Kerala backwaters" loading="lazy" />
+                                <img src="/images/valiyaparamba-houseboat-kasaragod.webp" className="card-img-top img-cinematic experience-img" alt="Best Valiyaparamba houseboat cruise in Kasaragod Kerala backwaters" loading="lazy" />
                                 <div className="card-body p-4">
                                     <h5 className="mb-3 text-tropical">Valiyaparamba Houseboat Booking</h5>
                                     <p className="text-muted mb-0">Experience the tranquil Kerala backwaters in our premium traditional houseboats.</p>
@@ -309,7 +309,7 @@ export default function Home() {
                         </div>
                         <div className="col-12 col-md-5">
                             <div className="card h-100 shadow-sm border-0 hover-card img-zoom-wrapper">
-                                <img src="/images/valiyaparamba-homestay-kasaragod.jpg" className="card-img-top img-cinematic experience-img" alt="Best homestay in Valiyaparamba backwaters Kerala village stay experience" loading="lazy" />
+                                <img src="/images/valiyaparamba-homestay-kasaragod.webp" className="card-img-top img-cinematic experience-img" alt="Best homestay in Valiyaparamba backwaters Kerala village stay experience" loading="lazy" />
                                 <div className="card-body p-4">
                                     <h5 className="mb-3 text-tropical">Best Homestays in Valiyaparamba Kerala</h5>
                                     <p className="text-muted mb-0">Stay with local families and enjoy legendary coastal Kerala hospitality and seafood.</p>
