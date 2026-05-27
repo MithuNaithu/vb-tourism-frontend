@@ -18,7 +18,8 @@ export default function Home() {
     });
 
     useEffect(() => {
-        fetch('https://api.counterapi.dev/v1/valiyaparamba_tourism/homepage/up')
+        // Calling your custom Render backend instead of the public counter
+        fetch('https://vb-tourism-backend.onrender.com/api/visit')
             .then(res => res.json())
             .then(data => setVisitors(data.count))
             .catch(err => console.error("Counter error:", err));
@@ -194,49 +195,49 @@ export default function Home() {
             </Helmet>
 
             <nav className="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
-    <div className="container">
+                <div className="container">
 
-        <Link className="navbar-brand" to="/">
-            Welcome to Valiyaparamba
-        </Link>
-
-        <button
-            className="navbar-toggler"
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation"
-        >
-            <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className={`collapse navbar-collapse ${mobileMenuOpen ? 'show' : ''}`}>
-            <ul className="navbar-nav ms-auto gap-3 gap-lg-4">
-
-                <li className="nav-item">
-                    <Link
-                        className="nav-link active"
-                        to="/"
-                        onClick={() => setMobileMenuOpen(false)}
-                    >
-                        Home
+                    <Link className="navbar-brand" to="/">
+                        Welcome to Valiyaparamba
                     </Link>
-                </li>
 
-                <li className="nav-item">
-                    <Link
-                        className="nav-link"
-                        to="/about"
-                        onClick={() => setMobileMenuOpen(false)}
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle navigation"
                     >
-                        About
-                    </Link>
-                </li>
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
 
-            </ul>
-        </div>
+                    <div className={`collapse navbar-collapse ${mobileMenuOpen ? 'show' : ''}`}>
+                        <ul className="navbar-nav ms-auto gap-3 gap-lg-4">
 
-    </div>
-</nav>
+                            <li className="nav-item">
+                                <Link
+                                    className="nav-link active"
+                                    to="/"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    Home
+                                </Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link
+                                    className="nav-link"
+                                    to="/about"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    About
+                                </Link>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
 
             <section className="hero text-center text-white">
                 <div className="container">
