@@ -18,12 +18,16 @@ export default function Home() {
     });
 
     useEffect(() => {
-        // Calling your custom Render backend instead of the public counter
-        fetch('https://vb-tourism-backend.onrender.com/api/visit')
-            .then(res => res.json())
-            .then(data => setVisitors(data.count))
-            .catch(err => console.error("Counter error:", err));
-    }, []);
+    // Vite automatically knows if you are running 'npm run dev' or if the site is live
+    const apiUrl = import.meta.env.DEV 
+        ? 'http://localhost:3000/api/visit' 
+        : 'https://vb-tourism-backend.onrender.com/api/visit';
+
+    fetch(apiUrl)
+        .then(res => res.json())
+        .then(data => setVisitors(data.count))
+        .catch(err => console.error("Counter error:", err));
+}, []);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
