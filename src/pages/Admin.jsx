@@ -5,10 +5,12 @@ import { Helmet } from 'react-helmet-async';
 export default function Admin() {
     const [bookings, setBookings] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [visitors, setVisitors] = useState([]);
 
     // Fetch all bookings when the page loads
     useEffect(() => {
         fetchBookings();
+        fetchVisitors();
     }, []);
 
     const fetchBookings = async () => {
@@ -23,6 +25,23 @@ export default function Admin() {
         } catch (error) {
             console.error("Error fetching bookings:", error);
             setLoading(false);
+        }
+    };
+
+    const fetchVisitors = async () => {
+        try {
+            const baseUrl = import.meta.env.DEV 
+                ? 'http://localhost:3000' 
+                : 'https://vb-tourism-backend.onrender.com';
+                
+            const response = await fetch(`${baseUrl}/api/admin/visitors`);
+            const data = await response.json();
+            
+            if (Array.isArray(data)) {
+                setVisitors(data);
+            }
+        } catch (error) {
+            console.error("Error fetching visitor data:", error);
         }
     };
 
@@ -127,6 +146,52 @@ export default function Admin() {
                     </div>
                 )}
             </div>
+            {/* ============================= */}
+                {/* NEW: VISITOR TRAFFIC ANALYTICS */}
+                {/* ============================= */}
+                <div className="d-flex justify-content-between align-items-center mt-5 mb-4">
+                    <h2>Website Traffic Location (Recent)</h2>
+                    <span className="badge bg-success fs-6">Tracking Active</span>
+                </div>
+
+                {visitors.length === 0 ? (
+                    <div className="alert alert-secondary text-center" role="alert">
+                        No visitor traffic logs found yet.
+                    </div>
+                ) : (
+                    <div className="card shadow-sm border-0 mb-5">
+                        <div className="table-responsive">
+                            <table className="table table-hover mb-0">
+                                <thead className="table-dark">
+                                    <tr>
+                                        <th>Time Checked</th>
+                                        <th>City</th>
+                                        <th>Country</th>
+                                        <th>IP Address</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {visitors.map((visitor) => (
+                                        <tr key={visitor._id}>
+                                            <td className="align-middle fw-semibold">
+                                                {new Date(visitor.visitedAt).toLocaleString()}
+                                            </td>
+                                            <td className="align-middle text-primary fw-bold">
+                                                {visitor.city}
+                                            </td>
+                                            <td className="align-middle fw-bold">
+                                                {visitor.country}
+                                            </td>
+                                            <td className="align-middle text-muted small">
+                                                {visitor.ip}
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                )}
         </div>
     );
 }
