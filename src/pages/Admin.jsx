@@ -66,6 +66,46 @@ export default function Admin() {
             console.error("Error deleting booking:", error);
         }
     };
+    // Delete a single visitor log
+    const handleDeleteVisitor = async (id) => {
+        try {
+            const baseUrl = import.meta.env.DEV 
+                ? 'http://localhost:3000' 
+                : 'https://vb-tourism-backend.onrender.com';
+
+            const response = await fetch(`${baseUrl}/api/admin/visitors/${id}`, {
+                method: 'DELETE',
+            });
+
+            if (response.ok) {
+                setVisitors(visitors.filter((v) => v._id !== id));
+            }
+        } catch (error) {
+            console.error("Error deleting visitor log:", error);
+        }
+    };
+
+    // Clear all visitor logs completely
+    const handleClearAllVisitors = async () => {
+        if (!window.confirm("Are you absolutely sure you want to wipe out ALL traffic logs? This cannot be undone.")) return;
+
+        try {
+            const baseUrl = import.meta.env.DEV 
+                ? 'http://localhost:3000' 
+                : 'https://vb-tourism-backend.onrender.com';
+
+            const response = await fetch(`${baseUrl}/api/admin/visitors`, {
+                method: 'DELETE',
+            });
+
+            if (response.ok) {
+                setVisitors([]);
+                alert("跑 All visitor logs have been cleared successfully!");
+            }
+        } catch (error) {
+            console.error("Error clearing logs:", error);
+        }
+    };
 
     return (
 
@@ -146,12 +186,17 @@ export default function Admin() {
                     </div>
                 )}
             </div>
-            {/* ============================= */}
-                {/* NEW: VISITOR TRAFFIC ANALYTICS */}
-                {/* ============================= */}
+           {/* --- VISITOR TRAFFIC ANALYTICS SECTION --- */}
                 <div className="d-flex justify-content-between align-items-center mt-5 mb-4">
                     <h2>Website Traffic Location (Recent)</h2>
-                    <span className="badge bg-success fs-6">Tracking Active</span>
+                    <div className="d-flex gap-2">
+                        {visitors.length > 0 && (
+                            <button onClick={handleClearAllVisitors} className="btn btn-sm btn-danger shadow-sm fw-bold">
+                                跑 Clear All Logs
+                            </button>
+                        )}
+                        <span className="badge bg-success fs-6">Tracking Active</span>
+                    </div>
                 </div>
 
                 {visitors.length === 0 ? (
@@ -168,6 +213,7 @@ export default function Admin() {
                                         <th>City</th>
                                         <th>Country</th>
                                         <th>IP Address</th>
+                                        <th className="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -184,6 +230,15 @@ export default function Admin() {
                                             </td>
                                             <td className="align-middle text-muted small">
                                                 {visitor.ip}
+                                            </td>
+                                            <td className="align-middle text-center">
+                                                <button
+                                                    onClick={() => handleDeleteVisitor(visitor._id)}
+                                                    className="btn btn-sm btn-link text-danger p-0 border-0 text-decoration-none"
+                                                    title="Delete Log"
+                                                >
+                                                    ❌ Remove
+                                                </button>
                                             </td>
                                         </tr>
                                     ))}
